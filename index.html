@@ -2,152 +2,178 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Project Description</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EasyFits | Project Description</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap">
 <style>
 :root{
-  --bg:#f6f8f7; --surface:#ffffff; --ink:#14201d; --muted:#5a6a66; --line:#dbe4e0;
-  --brand:#0f766e; --brand-soft:#d9f0ec;
-  --c-problem:#c2410c; --c-problem-soft:#fde8dc;
-  --c-solution:#0f766e; --c-solution-soft:#d9f0ec;
-  --c-market:#4338ca; --c-market-soft:#e3e2fa;
-  --c-money:#a16207; --c-money-soft:#f8ecc8;
-  --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --bg:#eef0f6;--surface:#fff;--ink:#121633;--muted:#565c7a;--line:#d9dcea;
+  --blue:#3340e0;--blue-soft:#e1e4ff;
+  --coral:#d83a40;--coral-soft:#fde4e4;
+  --mint:#0b8a67;--mint-soft:#d8f3ea;
+  --tape:#f2c94c;--navy:#101532;
+  --display:'Bricolage Grotesque',Georgia,sans-serif;--body:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#0e1514; --surface:#16201e; --ink:#e8f0ee; --muted:#9db0ab; --line:#26332f;
-    --brand:#4fd1c0; --brand-soft:#16332f;
-    --c-problem:#fb923c; --c-problem-soft:#3a2216;
-    --c-solution:#4fd1c0; --c-solution-soft:#16332f;
-    --c-market:#a5a1ff; --c-market-soft:#23224a;
-    --c-money:#f2c14e; --c-money-soft:#3a3016;
-  }
-}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c0f22;--surface:#151a33;--ink:#e9ebf7;--muted:#a0a6c6;--line:#262c4d;
+  --blue:#8f9bff;--blue-soft:#1f2652;--coral:#ff7b7f;--coral-soft:#3a1a24;--mint:#4fd8ad;--mint-soft:#123a30;--navy:#080b1c;
+}}
 *{box-sizing:border-box}
-html{color-scheme:light dark;scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans)}
+html{color-scheme:light dark;scroll-behavior:smooth;padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--body)}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:var(--serif);line-height:1.15;margin:0}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0}
 
 /* Hero */
-header.hero{background:var(--brand);color:#fff;padding:72px 0 64px}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header.hero{background:#0b3b36}}
-.hero .tag{display:inline-block;background:rgba(255,255,255,.18);padding:4px 14px;border-radius:99px;font-size:.85rem;font-weight:500}
-.hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:800;margin:16px 0 12px}
-.hero p{max-width:60ch;margin:0;font-size:1.1rem;opacity:.92}
+.hero{background:var(--navy);color:#fff;padding:64px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center}
+.hero h1{font-size:clamp(3rem,9vw,5.6rem);font-weight:800;letter-spacing:-.03em}
+.hero p{font-size:1.15rem;max-width:34ch;margin:16px 0 0;color:#c9cdea}
+.hero .fig{width:100%;max-width:300px;justify-self:center}
+.fig .body{fill:none;stroke:#fff;stroke-width:2;stroke-linejoin:round}
+.fig .ring{fill:none;stroke:var(--tape);stroke-width:3;stroke-dasharray:10 7;animation:spin 6s linear infinite}
+.fig text{fill:var(--tape);font:800 15px var(--display)}
+@keyframes spin{to{stroke-dashoffset:-34}}
+.tape{height:34px;background:
+  repeating-linear-gradient(90deg,#14193a 0 1.5px,transparent 1.5px 12px) bottom/100% 10px no-repeat,
+  repeating-linear-gradient(90deg,#14193a 0 1.5px,transparent 1.5px 60px) bottom/100% 18px no-repeat,
+  var(--tape)}
 
 /* Nav */
-nav{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;gap:4px;overflow-x:auto;padding:8px 20px}
 nav a{white-space:nowrap;text-decoration:none;color:var(--muted);font-size:.9rem;font-weight:500;padding:6px 12px;border-radius:8px}
-nav a:hover,nav a:focus-visible{background:var(--brand-soft);color:var(--brand);outline:none}
+nav a:hover{background:var(--blue-soft);color:var(--blue)}
 
 /* Sections */
-section{padding:48px 0 8px}
-.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.sec-head .n{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:600;color:var(--accent);background:var(--accent-soft)}
-.sec-head h2{font-size:1.7rem}
-.card{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:12px;padding:24px}
-.card p{margin:0 0 .8em;max-width:75ch}
-.card p:last-child{margin:0}
-.problem{--accent:var(--c-problem);--accent-soft:var(--c-problem-soft)}
-.solution{--accent:var(--c-solution);--accent-soft:var(--c-solution-soft)}
-.market{--accent:var(--c-market);--accent-soft:var(--c-market-soft)}
-.money{--accent:var(--c-money);--accent-soft:var(--c-money-soft)}
-.team-sec{--accent:var(--brand);--accent-soft:var(--brand-soft)}
+section{padding:56px 0 0}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:800;letter-spacing:-.02em;margin-bottom:22px;padding-left:16px;border-left:8px solid var(--accent,var(--blue))}
+.problem{--accent:var(--coral);--soft:var(--coral-soft)}
+.solution{--accent:var(--mint);--soft:var(--mint-soft)}
+.market{--accent:var(--blue);--soft:var(--blue-soft)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+.card p{margin:0 0 .8em;max-width:70ch}.card p:last-child{margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.grid h3{font-size:1.2rem;margin-bottom:8px}
+.note{color:var(--muted);font-size:.95rem}
 
 /* Team */
 .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.member{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px 18px;text-align:center}
-.member img{width:112px;height:112px;border-radius:50%;object-fit:cover;border:4px solid var(--brand-soft);background:var(--brand-soft)}
-.member h3{font-size:1.15rem;margin:14px 0 2px}
-.role{display:inline-block;background:var(--brand-soft);color:var(--brand);font-size:.8rem;font-weight:600;padding:2px 10px;border-radius:99px}
+.member{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px 18px;text-align:center}
+.member img{width:112px;height:112px;border-radius:50%;object-fit:cover;border:4px solid var(--tape);background:var(--blue-soft)}
+.member h3{font-size:1.15rem;margin:14px 0 4px}
+.role{display:inline-block;background:var(--blue-soft);color:var(--blue);font-size:.8rem;font-weight:600;padding:2px 10px;border-radius:99px}
 .member p{font-size:.9rem;color:var(--muted);margin:10px 0 6px}
-.member a{color:var(--brand);font-size:.9rem;word-break:break-all}
+.member a{color:var(--blue);font-size:.9rem;word-break:break-all}
 
-/* Grid of smaller sections */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-.grid .card{height:100%}
-.grid h3{font-size:1.2rem;margin-bottom:10px;color:var(--accent)}
+/* Problem */
+.problem .card{border-top:6px solid var(--coral)}
+.problem h3{color:var(--coral)}
 
-/* Business model trio */
-.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.trio .card{border-left-width:1px;border-top:5px solid var(--accent)}
-.trio h3{font-size:1.2rem;margin-bottom:10px}
+/* Solution */
+.lead{background:var(--navy);color:#fff;border-radius:14px;padding:28px}
+.lead p{max-width:70ch;margin:0 0 .8em;font-size:1.05rem}
+.lead .en{color:#c9cdea;font-size:.95rem}
+.lead .no-ai{display:inline-block;background:var(--tape);color:#14193a;font-weight:600;border-radius:8px;padding:6px 14px;margin-top:8px}
+.solution .grid{margin-top:16px}
+.solution .card{border-top:6px solid var(--mint)}
+.solution h3{color:var(--mint)}
 
-footer{margin-top:56px;padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;text-align:center}
-:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Segments */
+.seg{border-top:6px solid var(--blue)}
+.seg h3{margin-bottom:12px;color:var(--blue)}
+.seg dl{margin:0}.seg dt{font-weight:600;font-size:.85rem;color:var(--muted);margin-top:10px}
+.seg dd{margin:2px 0 0}
+.pain{color:var(--coral)}.gain{color:var(--mint)}
+
+/* Advantage */
+.adv{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.adv .card{border-top:6px solid var(--mint)}
+.adv h3{color:var(--mint);margin-bottom:8px;font-size:1.2rem}
+.big{font-family:var(--display);font-weight:800;font-size:3.2rem;line-height:1;color:var(--mint);margin-bottom:6px}
+
+/* Empty */
+.empty{border:2px dashed var(--line);background:transparent;color:var(--muted)}
+footer{margin:64px 0 0;padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;text-align:center}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+@media (max-width:720px){.hero .wrap{grid-template-columns:1fr}.hero .fig{max-width:200px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fig .ring{animation:none}}
 </style>
 </head>
 <body>
 
 <header class="hero">
   <div class="wrap">
-    <span class="tag">Project Description</span>
-    <h1>Your Project Title</h1>
-    <p>One sentence that explains what the project does and who it is for.</p>
+    <div>
+      <h1>EasyFits</h1>
+    </div>
+    <svg class="fig" viewBox="0 0 200 260" role="img" aria-label="Dress form surrounded by a 360 degree ring">
+      <path class="body" d="M100 30c-8 0-12 6-12 14 0 6 3 9 3 12-14 4-38 10-44 22-2 4 0 8 4 10l20-4c0 30-4 52-6 70 10 6 26 9 35 9s25-3 35-9c-2-18-6-40-6-70l20 4c4-2 6-6 4-10-6-12-30-18-44-22 0-3 3-6 3-12 0-8-4-14-12-14z"/>
+      <path class="body" d="M100 176v56M72 238h56"/>
+      <ellipse class="ring" cx="100" cy="112" rx="88" ry="22"/>
+      <text x="100" y="256" text-anchor="middle">360°</text>
+    </svg>
   </div>
+  <div class="wrap" style="display:block"></div>
 </header>
+<div class="tape" aria-hidden="true"></div>
 
 <nav aria-label="Sections"><div class="wrap">
-  <a href="#team">Team</a><a href="#problem">Problem</a><a href="#solution">Solution</a>
+  <a href="#description">Description</a><a href="#team">Team</a><a href="#problem">Problem</a><a href="#solution">Solution</a>
   <a href="#customers">Customers</a><a href="#competition">Competition</a><a href="#advantage">Advantage</a>
   <a href="#metrics">Metrics</a><a href="#costs">Costs</a><a href="#revenue">Revenue</a>
 </div></nav>
 
 <main class="wrap">
 
-  <section id="team" class="team-sec">
-    <div class="sec-head"><span class="n">2</span><h2>Our team</h2></div>
+  <section id="description" class="solution">
+    <h2>Project description</h2>
+    <div class="lead">
+      <p class="en">EasyFits is a 3D digital wardrobe. Users scan their clothes and their body, then create, combine and virtually try on outfits that can be viewed from any angle (360°), using both items they own and items they could buy online.</p>
+    </div>
+  </section>
+
+  <section id="team" class="market">
+    <h2>Our team</h2>
     <div class="team">
-      <article class="member">
-        <img src="images/member1.jpg" alt="Photo of Member One">
-        <h3>Member One</h3><span class="role">Team Lead</span>
-        <p>Short description of responsibilities.</p>
-        <a href="mailto:member1@example.com">member1@example.com</a>
-      </article>
-      <article class="member">
-        <img src="images/member2.jpg" alt="Photo of Member Two">
-        <h3>Member Two</h3><span class="role">Developer</span>
-        <p>Short description of responsibilities.</p>
-        <a href="mailto:member2@example.com">member2@example.com</a>
-      </article>
-      <article class="member">
-        <img src="images/member3.jpg" alt="Photo of Member Three">
-        <h3>Member Three</h3><span class="role">Designer</span>
-        <p>Short description of responsibilities.</p>
-        <a href="mailto:member3@example.com">member3@example.com</a>
-      </article>
-      <article class="member">
-        <img src="images/member4.jpg" alt="Photo of Member Four">
-        <h3>Member Four</h3><span class="role">Marketing</span>
-        <p>Short description of responsibilities.</p>
-        <a href="mailto:member4@example.com">member4@example.com</a>
-      </article>
+      <article class="member"><img src="images/member1.jpg" alt="Photo of Member One"><h3>Savu Paul-Cristian</h3><span class="role">Role 1</span><br><a href="mailto:paul.savu2004@gmail.com">paul.savu2004@gmail.com</a></article>
+      <article class="member"><img src="images/member2.jpg" alt="Photo of Member Two"><h3>Dinca Alexandra-Cristina</h3><span class="role">Role 2</span><br><a href="mailto:alexandradi2003@gmail.com">alexandradi2003@gmail.com</a></article>
+      <article class="member"><img src="images/member3.jpg" alt="Photo of Member Three"><h3>Stefanescu Valentin</h3><span class="role">Role 3</span><br><a href="mailto:valentin.stefanescu04@gmail.com">valentin.stefanescu04@gmail.com</a></article>
+      <article class="member"><img src="images/member4.jpg" alt="Photo of Member Four"><h3>Bahrin Sebastian-Stefan</h3><span class="role">Role 4</span><br><a href="mailto:sebibahrin@yahoo.com">sebibahrin@yahoo.com</a></article>
     </div>
   </section>
 
   <section id="problem" class="problem">
-    <div class="sec-head"><span class="n">3</span><h2>The problem</h2></div>
-    <div class="card"><p>Describe the problem you have noticed, who experiences it, and why it matters.</p></div>
+    <h2>The problem</h2>
+    <div class="grid">
+      <div class="card"><h3>Forgotten clothes</h3><p>Most people own clothes they are not even aware of, so a lot of items stay unused at the back of the wardrobe.</p></div>
+      <div class="card"><h3>Outfits take effort to test</h3><p>Seeing what an outfit looks like means changing again and again, which takes time and patience.</p></div>
+      <div class="card"><h3>Styling is hard</h3><p>Many people find it difficult to match their clothes together from a styling point of view.</p></div>
+      <div class="card"><h3>Shops only show models</h3><p>Online stores show clothes on models. A normal user cannot see how an item looks on them without trying it on physically.</p></div>
+    </div>
   </section>
 
   <section id="solution" class="solution">
-    <div class="sec-head"><span class="n">4</span><h2>Our solution and value proposition</h2></div>
-    <div class="card"><p>Explain what you built and the value it gives to users.</p></div>
+    <h2>Our solution</h2>
+    <div class="lead">
+      <p>EasyFits turns the user's wardrobe and their silhouette into a 3D digital space where they can build outfits, try them on virtually and look at themselves from every angle, without having to physically get dressed or buying the item.</p>
+      <span class="no-ai">No AI: we use machine learning, computer vision and other mechanisms.</span>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Scan</h3><p>The users scan their clothes and their bodies to buildtheir personal 3D wardrobes.</p></div>
+      <div class="card"><h3>Combine</h3><p>The users can create and mix outfits from their digital wardrobe and view the result inside the platform.</p></div>
+      <div class="card"><h3>Try on</h3><p>Trying on items works both with owned products and ones that the user could eventually buy online.</p></div>
+    </div>
   </section>
 
   <section id="customers" class="market">
-    <div class="sec-head"><span class="n">5</span><h2>Customer segments</h2></div>
-    <div class="card"><p>Describe the groups of people or organisations you are building this for.</p></div>
+    <h2>Customer segments</h2>
+    <div class="card empty"><p>To be added.</p></div>
   </section>
 
   <section id="competition" class="market">
-    <div class="sec-head"><span class="n">6</span><h2>Competition</h2></div>
+    <h2>Competition</h2>
     <div class="grid">
       <div class="card"><h3>Competitor A</h3><p>What they offer and where they fall short.</p></div>
       <div class="card"><h3>Competitor B</h3><p>What they offer and where they fall short.</p></div>
@@ -155,28 +181,19 @@ footer{margin-top:56px;padding:28px 0;border-top:1px solid var(--line);color:var
   </section>
 
   <section id="advantage" class="solution">
-    <div class="sec-head"><span class="n">7</span><h2>Our advantage</h2></div>
-    <div class="card"><p>Explain why users would choose you over the competition.</p></div>
+    <h2>Our advantage</h2>
+    <div class="adv">
+      <div class="card"><div class="big">360°</div><h3>The users can see themselves from any direction</h3><p>Users view themselves wearing an outfit from every angle, not just from the front.</p></div>
+      <div class="card"><h3>Built to partner with businesses</h3><p>We want to work with other businesses so they can offer this service to their customers and improve their experience.</p></div>
+    </div>
   </section>
 
-  <section id="metrics" class="market">
-    <div class="sec-head"><span class="n">8</span><h2>Key metrics</h2></div>
-    <div class="card"><p>List the numbers you will track to measure success.</p></div>
-  </section>
-
-  <section id="costs" class="money">
-    <div class="sec-head"><span class="n">9</span><h2>Cost structure</h2></div>
-    <div class="card"><p>List your main fixed and variable costs.</p></div>
-  </section>
-
-  <section id="revenue" class="money">
-    <div class="sec-head"><span class="n">10</span><h2>Revenue streams</h2></div>
-    <div class="card"><p>Explain how the project will make money.</p></div>
-  </section>
+  <section id="metrics" class="market"><h2>Key metrics</h2><div class="card empty"><p>To be added.</p></div></section>
+  <section id="costs" class="market"><h2>Cost structure</h2><div class="card empty"><p>To be added.</p></div></section>
+  <section id="revenue" class="market"><h2>Revenue streams</h2><div class="card empty"><p>To be added.</p></div></section>
 
 </main>
 
-<footer><div class="wrap">Your Project Title &middot; Team name &middot; 2026</div></footer>
-
+<footer><div class="wrap">EasyFits &middot; Team name &middot; 2026</div></footer>
 </body>
 </html>
