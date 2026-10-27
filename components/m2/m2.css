@@ -1,0 +1,10 @@
+/* M2-only styles. Loaded when the M2 tab is active, disabled when it isn't.
+   Shared variables, .card, .grid, h2, .subnav, etc. come from /styles.css */
+
+/* ---------- Sub-tabs inside a section (Validation: Forms / Interviews) ---------- */
+.subtabs-bar{display:flex;gap:4px;overflow-x:auto;border-bottom:1px solid var(--line);margin-bottom:20px}
+.subtabs-bar [role="tab"]{appearance:none;background:none;border:0;border-bottom:4px solid transparent;margin-bottom:-1px;
+    font:800 1.15rem var(--display);color:var(--muted);padding:8px 18px;cursor:pointer;white-space:nowrap}
+.subtabs-bar [role="tab"]:hover{color:var(--ink);background:var(--sage-soft);border-radius:8px 8px 0 0}
+.subtabs-bar [role="tab"].active{color:var(--ink);border-bottom-color:var(--tape)}
+.subtabs [hidden]{display:none!important}

@@ -1,0 +1,91 @@
+/* Shell + shared styles only (variables, hero, tab bar, footer, shared card/grid).
+   Anything specific to one tab lives in components/<tab>/<tab>.css */
+
+:root{
+    --bg:#eef2ee;--surface:#fff;--ink:#1c261f;--muted:#5b685f;--line:#d5ddd6;
+    --sage:#557362;--sage-soft:#e1eae3;--hero:#557362;--link:#3f5c4c;
+    --tape:#f2c94c;--tape-soft:#faefc2;--tape-ink:#1c261f;
+    --pill:rgba(255,255,255,.7);
+    --t1-bg:#e4eee6;--t1-line:#c5d6c9;--t1-t:#3d6b4f;--t1-n:#234232;
+    --t2-bg:#fbf2cb;--t2-line:#ecdc9a;--t2-t:#8a6a00;--t2-n:#5a4400;
+    --t3-bg:#e9f3d9;--t3-line:#cfe0b0;--t3-t:#486814;--t3-n:#34500f;
+    --t4-bg:#fbe6a2;--t4-line:#eacb70;--t4-t:#946200;--t4-n:#5e3f00;
+    --display:'Bricolage Grotesque',Georgia,sans-serif;--body:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --tabs-h:49px; /* updated from js/main.js to the real tab bar height */
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#121815;--surface:#1b231e;--ink:#e8eeea;--muted:#a3b0a7;--line:#2b362f;
+    --sage:#7fa38c;--sage-soft:#243029;--hero:#2f4338;--link:#a9cdb6;--tape-soft:#3b3418;
+    --pill:rgba(255,255,255,.08);
+    --t1-bg:#1f2d25;--t1-line:#2f4538;--t1-t:#8fc2a0;--t1-n:#c4e4cf;
+    --t2-bg:#2d2912;--t2-line:#4b4420;--t2-t:#e6c75a;--t2-n:#f4dd8f;
+    --t3-bg:#25301a;--t3-line:#3b4c28;--t3-t:#a9cc6c;--t3-n:#d1e69e;
+    --t4-bg:#342a10;--t4-line:#54431a;--t4-t:#f0b94a;--t4-n:#f9db8c;
+}}
+*{box-sizing:border-box}
+html{color-scheme:light dark;scroll-behavior:smooth;padding-top:env(safe-area-inset-top,0px);
+    scroll-padding-top:calc(env(safe-area-inset-top,0px) + var(--tabs-h) + 60px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--body)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0}
+
+/* ---------- Hero ---------- */
+.hero{background:var(--hero);color:#fff;padding:64px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center}
+.hero h1{font-size:clamp(3rem,9vw,5.6rem);font-weight:800;letter-spacing:-.03em}
+.hero .fig{width:100%;max-width:300px;justify-self:center}
+.fig .body{fill:none;stroke:#fff;stroke-width:2;stroke-linejoin:round}
+.fig .fill{fill:var(--hero)}
+.fig .ring{fill:none;stroke:var(--tape);stroke-width:3;stroke-dasharray:10 7;animation:spin 6s linear infinite}
+.fig .back{stroke-opacity:.35}
+.fig text{fill:var(--tape);font:800 19px var(--display)}
+@keyframes spin{to{stroke-dashoffset:-34}}
+.tape{height:34px;background:
+        repeating-linear-gradient(90deg,var(--tape-ink) 0 1.5px,transparent 1.5px 12px) bottom/100% 10px no-repeat,
+        repeating-linear-gradient(90deg,var(--tape-ink) 0 1.5px,transparent 1.5px 60px) bottom/100% 18px no-repeat,
+        var(--tape)}
+
+/* ---------- Top-level tabs (M1, M2, ...) ---------- */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:var(--surface);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:8px;overflow-x:auto;padding:8px 20px}
+.tabs a{white-space:nowrap;text-decoration:none;color:var(--muted);font:800 1.05rem var(--display);
+    padding:6px 20px;border-radius:99px;border:1px solid transparent}
+.tabs a:first-child{margin-left:auto}.tabs a:last-child{margin-right:auto}
+.tabs a:hover{background:var(--sage-soft);color:var(--ink)}
+.tabs a.active{background:var(--sage);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs a.active{color:#0f1512}}
+
+/* ---------- In-tab section menu (used by M1, M2, ...) ---------- */
+.subnav{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--tabs-h));z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.subnav .wrap{display:flex;gap:4px;overflow-x:auto;padding:8px 20px}
+.subnav a{white-space:nowrap;text-decoration:none;color:var(--muted);font-size:1rem;font-weight:500;padding:6px 12px;border-radius:8px}
+.subnav a:first-child{margin-left:auto}.subnav a:last-child{margin-right:auto}
+.subnav a:hover{background:var(--sage-soft);color:var(--ink)}
+
+/* ---------- Shared building blocks (sections, cards, grid) ---------- */
+section{padding:56px 0 0}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:800;letter-spacing:-.02em;margin-bottom:22px;padding-left:16px;border-left:8px solid var(--sage)}
+.card,.member{--c-bg:var(--t1-bg);--c-line:var(--t1-line);--c-t:var(--t1-t);--c-n:var(--t2-n);--c-d:var(--t3-t)}
+.card,.member{position:relative;overflow:hidden;background:var(--c-bg);border:1px solid var(--c-line);border-radius:14px;padding:38px 24px 24px;font-size:1.2rem}
+.card::before,.member::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:
+        repeating-linear-gradient(90deg,var(--tape-ink) 0 1.5px,transparent 1.5px 12px) bottom/100% 6px no-repeat,
+        var(--tape)}
+.card h3,.member h3{color:var(--c-t);letter-spacing:-.01em}
+.card .note{color:var(--c-d);font-size:1.15rem;font-weight:500}
+.card p{margin:0 0 .8em;max-width:70ch}.card p:last-child{margin:0}
+.grid{--cols:3;display:grid;grid-template-columns:repeat(var(--cols),1fr);gap:16px}
+.grid:has(>:nth-child(2):last-child),.grid:has(>:nth-child(4):last-child){--cols:2}
+@media (max-width:760px){.grid{--cols:1!important}}
+.grid h3{font-size:1.5rem;margin-bottom:8px}
+.note{color:var(--muted);font-size:.95rem}
+
+/* ---------- Footer / misc ---------- */
+footer{margin:64px 0 0;padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;text-align:center}
+:focus-visible{outline:3px solid var(--link);outline-offset:2px}
+@media (max-width:720px){.hero .wrap{grid-template-columns:1fr}.hero .fig{max-width:200px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fig .ring{animation:none}}
+
+/* ---------- Scroll animation ---------- */
+.js .reveal{--d:0s;opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;transition-delay:var(--d)}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
