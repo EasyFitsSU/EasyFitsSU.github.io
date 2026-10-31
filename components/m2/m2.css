@@ -1,5 +1,5 @@
 /* M2-only styles. Loaded when the M2 tab is active, disabled when it isn't.
-   Shared variables, .card, .grid, h2, .subnav, etc. come from /styles.css */
+   Shared variables, .card, .grid, h2, etc. come from /styles.css */
 
 /* ---------- Sub-tabs inside a section (Validation: Forms / Interviews) ---------- */
 .subtabs-bar{display:flex;gap:4px;overflow-x:auto;border-bottom:1px solid var(--line);margin-bottom:20px}
@@ -8,3 +8,256 @@
 .subtabs-bar [role="tab"]:hover{color:var(--ink);background:var(--sage-soft);border-radius:8px 8px 0 0}
 .subtabs-bar [role="tab"].active{color:var(--ink);border-bottom-color:var(--tape)}
 .subtabs [hidden]{display:none!important}
+
+/* ---- Validation > Forms tab ---- */
+
+#val-forms {
+    --vf-accent: var(--sage);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Two-pillar intro */
+#val-forms .vf-pillars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 14px;
+}
+
+#val-forms .vf-pillar {
+    flex: 1 1 280px;
+    padding: 16px 18px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+}
+
+#val-forms .vf-pillar h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 8px;
+    font: 800 1.25rem var(--display);
+    color: var(--c-t);
+}
+
+#val-forms .vf-num {
+    display: inline-grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--tape);
+    color: var(--tape-ink);
+    font: 800 1rem var(--display);
+}
+
+#val-forms .vf-pillar p {
+    font-size: 1.05rem;
+    margin: 0 0 10px;
+}
+
+#val-forms .vf-tests {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+/* Summary boxes */
+#val-forms .vf-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 10px 0 18px;
+}
+
+#val-forms .vf-stat {
+    flex: 1 1 120px;
+    padding: 16px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--sage);
+    background: var(--hero);          /* sage box so the yellow number stays readable */
+    text-align: center;
+}
+
+#val-forms .vf-stat b {
+    display: block;
+    font-size: 2.4em;
+    font-weight: 800;
+    color: var(--tape);
+    line-height: 1;
+}
+
+#val-forms .vf-stat span {
+    display: block;
+    font-size: 1rem;
+    color: #fff;
+    opacity: 0.92;
+    margin-top: 8px;
+    line-height: 1.3;
+}
+
+#val-forms .vf-sub {
+    margin: 0 0 10px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ---- Pie charts ----
+   One grid row per part (title / pie / legend) shared by every pie in a row, so the
+   centres of the pies sit on one line however long the titles are. Fixed-width columns
+   with space-evenly give the same space between the pies and between the pies and the sides.
+   Change --pie to make every pie bigger or smaller. */
+#val-forms .vf-charts {
+    --pie: 200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, var(--pie));
+    justify-content: space-evenly;
+    column-gap: 0;
+    row-gap: 10px;
+    margin: 8px 0 0;
+}
+
+#val-forms .vf-chart-block {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    justify-items: center;
+    min-width: 0;
+    margin-bottom: 26px;
+}
+
+#val-forms .vf-chart-block .vf-sub {
+    align-self: end;                   /* title sits right above its pie */
+    width: calc(100% + 60px);          /* titles may be wider than the pie */
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.25;
+}
+
+#val-forms .vf-canvas-wrap {
+    position: relative;
+    height: 180px;
+    width: 100%;
+}
+
+#val-forms .vf-chart-block .vf-canvas-wrap {
+    height: var(--pie);
+}
+
+#val-forms .vf-legend {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;           /* swatches stay in a neat column */
+    align-self: start;
+    gap: 4px;
+    width: max-content;
+    max-width: 100%;
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+#val-forms .vf-swatch {
+    --vf-sw: #888;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    background: var(--vf-sw);
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* ---- Vertical bar charts ----
+   Two per row; title, subtitle, chart and key each get a shared row, so the bars of
+   neighbouring charts start on the same line. Text is centred over the chart. */
+#val-forms .vf-bars {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 32px;
+    row-gap: 6px;
+    margin: 8px 0 0;
+}
+
+#val-forms .vf-bar-block {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 4;
+    min-width: 0;
+    margin-bottom: 26px;
+    text-align: center;
+}
+
+#val-forms .vf-bar-block:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+}
+
+/* a single bar chart in its own row stays a sensible width and centred */
+#val-forms .vf-bar-block:only-child {
+    max-width: 560px;
+    width: 100%;
+    justify-self: center;
+}
+
+@media (max-width: 760px) {
+    #val-forms .vf-bars { grid-template-columns: 1fr; }
+}
+
+#val-forms .vf-bar-block .vf-sub {
+    align-self: end;
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.25;
+}
+
+#val-forms .vf-base {
+    align-self: start;
+    margin: 0 0 6px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+#val-forms .vf-bar-canvas {            /* stays below .vf-canvas-wrap so the taller height wins */
+    height: 250px;
+}
+
+#val-forms .vf-key {
+    align-self: start;
+    margin-top: 4px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+/* ---- Key notes box ---- */
+#val-forms .vf-note {
+    margin-top: 14px;
+    padding: 14px 16px;
+    border-left: 4px solid var(--tape);
+    background: var(--sage-soft);
+    border-radius: 0 8px 8px 0;
+    color: var(--ink);
+    font-size: 1rem;
+}
+
+#val-forms .vf-note h4 {
+    margin: 0 0 8px;
+    font: 800 1.2rem var(--display);
+    color: var(--c-t);
+}
+
+#val-forms .vf-note ul {
+    margin: 0 0 10px;
+    padding-left: 20px;
+}
+
+#val-forms .vf-note li {
+    margin-bottom: 6px;
+}
+
+#val-forms .vf-note .vf-caveat {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+}

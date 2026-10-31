@@ -51,9 +51,196 @@
                 <button type="button" role="tab" class="active" aria-selected="true" aria-controls="val-forms" data-panel="val-forms">Forms</button>
                 <button type="button" role="tab" aria-selected="false" aria-controls="val-interviews" data-panel="val-interviews">Interviews</button>
             </div>
-            <div id="val-forms" role="tabpanel">
-                <div class="card"><h3>Forms</h3><p>Replace this with the forms results.</p></div>
-            </div>
+					<div id="val-forms" role="tabpanel">
+
+						<div class="card">
+							<p>EasyFits combines two ideas in one app. The form tests the problem and the solution behind each of them.</p>
+
+							<div class="vf-pillars">
+								<div class="vf-pillar">
+									<h4><span class="vf-num">1</span>Digital wardrobe</h4>
+									<p>Scan and organise the clothes you already own so you can keep track of them. Nothing gets forgotten, and you get outfit ideas built from your own closet.</p>
+									<span class="vf-tests"><b>Tested with:</b> forgotten and duplicate clothes, how people organise and plan outfits, willingness to scan.</span>
+								</div>
+
+								<div class="vf-pillar">
+									<h4><span class="vf-num">2</span>Try-on before you buy</h4>
+									<p>See clothes from online stores on a 3D model of your own body before ordering, so fit and look stop being a guess and fewer items get returned.</p>
+									<span class="vf-tests"><b>Tested with:</b> shopping habits, reasons for delaying orders, returns, interest in 3D try-on.</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<h3>1. Who answered</h3>
+
+							<div class="vf-stats">
+								<div class="vf-stat"><b>64</b><span>responses</span></div>
+								<div class="vf-stat"><b>53%</b><span>female</span></div>
+								<div class="vf-stat"><b>45%</b><span>male</span></div>
+								<div class="vf-stat"><b>78%</b><span>under 35</span></div>
+							</div>
+
+							<div class="vf-charts">
+
+								<div class="vf-chart-block">
+									<div class="vf-sub">Gender</div>
+									<div class="vf-canvas-wrap">
+										<canvas id="chart-gender" role="img" aria-label="Pie chart of gender: 53% Female, 45% Male, 2% Prefer not to say">Gender: 53% Female, 45% Male, 2% Prefer not to say.</canvas>
+									</div>
+									<div class="vf-legend">
+										<span><span class="vf-swatch" style="--vf-sw: #2a78d6"></span>Female 53%</span>
+										<span><span class="vf-swatch" style="--vf-sw: #eb6834"></span>Male 45%</span>
+										<span><span class="vf-swatch" style="--vf-sw: #1baf7a"></span>Prefer not to say 2%</span>
+									</div>
+								</div>
+
+								<div class="vf-chart-block">
+									<div class="vf-sub">Age</div>
+									<div class="vf-canvas-wrap">
+										<canvas id="chart-age" role="img" aria-label="Pie chart of age groups: 53% 18-24, 25% 25-34, 6% 35-44, 16% 45+">Age: 53% 18-24, 25% 25-34, 6% 35-44, 16% 45+.</canvas>
+									</div>
+									<div class="vf-legend">
+										<span><span class="vf-swatch" style="--vf-sw: #2a78d6"></span>18-24 &nbsp;53%</span>
+										<span><span class="vf-swatch" style="--vf-sw: #eb6834"></span>25-34 &nbsp;25%</span>
+										<span><span class="vf-swatch" style="--vf-sw: #1baf7a"></span>35-44 &nbsp;&nbsp;6%</span>
+										<span><span class="vf-swatch" style="--vf-sw: #eda100"></span>45+ &nbsp;&nbsp;&nbsp;16%</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="vf-note">
+								<h4>Key notes</h4>
+								<ul>
+									<li><b>The audience is young.</b> 53% of respondents are aged 18-24 and 78% are under 35, the group most likely to try a digital wardrobe and 3D try-on.</li>
+									<li><b>Genders are almost equal.</b> 53% female and 45% male, so the results are not skewed toward one group.</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="card">
+							<h3>2A. Problem validation: owning clothes</h3>
+							<p>Do people forget what they own, buy things they already have, and struggle to put outfits together? This tests the digital wardrobe.</p>
+
+							<div class="vf-stats">
+								<div class="vf-stat"><b>83%</b><span>found a garment they had forgotten about</span></div>
+								<div class="vf-stat"><b>36%</b><span>bought something almost identical by accident</span></div>
+								<div class="vf-stat"><b>64%</b><span>often or always ask "what goes with this?"</span></div>
+								<div class="vf-stat"><b>11%</b><span>don't organise their clothes at all</span></div>
+							</div>
+
+							<div class="vf-charts">
+								<div class="vf-chart-block">
+									<div class="vf-sub">How they organise their clothes</div>
+									<div class="vf-canvas-wrap">
+										<canvas id="chart-organise" role="img" aria-label="Pie chart of how people organise clothes: 48% by category, 36% by season, 11% not at all, 5% by colour">Organisation: 48% by category, 36% by season, 11% not at all, 5% by colour.</canvas>
+									</div>
+									<div class="vf-legend"></div>
+								</div>
+
+								<div class="vf-chart-block">
+									<div class="vf-sub">Bought a near-identical item by accident?</div>
+									<div class="vf-canvas-wrap">
+										<canvas id="chart-duplicate" role="img" aria-label="Pie chart: 56% no, 36% yes, 6% not sure, 2% no answer">Near-identical purchase: 56% no, 36% yes, 6% not sure, 2% no answer.</canvas>
+									</div>
+									<div class="vf-legend"></div>
+								</div>
+							</div>
+
+							<div class="vf-charts">
+								<div class="vf-chart-block">
+									<div class="vf-sub">How often they ask "do I have something to match this?"</div>
+									<div class="vf-canvas-wrap">
+										<canvas id="chart-match" role="img" aria-label="Pie chart: never 6%, rarely 5%, sometimes 25%, often 48%, always 16%">Never 6%, rarely 5%, sometimes 25%, often 48%, always 16%.</canvas>
+									</div>
+									<div class="vf-legend"></div>
+								</div>
+
+								<div class="vf-chart-block">
+									<div class="vf-sub">How long it takes to choose what to wear</div>
+									<div class="vf-canvas-wrap">
+										<canvas id="chart-dress-time" role="img" aria-label="Pie chart: under 2 minutes 16%, 2 to 5 minutes 36%, 5 to 10 minutes 36%, 10 to 20 minutes 11%, over 20 minutes 2%">Under 2 min 16%, 2-5 min 36%, 5-10 min 36%, 10-20 min 11%, over 20 min 2%.</canvas>
+									</div>
+									<div class="vf-legend"></div>
+								</div>
+							</div>
+
+							<div class="vf-bars">
+								<div class="vf-bar-block">
+									<div class="vf-sub">How hard it is to combine clothes</div>
+									<span class="vf-base">% of the 63 who answered, from 1 (very easy) to 5 (very hard)</span>
+									<div class="vf-canvas-wrap vf-bar-canvas">
+										<canvas id="chart-combine" role="img" aria-label="Bar chart of difficulty from 1 to 5: 22%, 32%, 35%, 10%, 2%">Difficulty 1 to 5: 22%, 32%, 35%, 10%, 2%.</canvas>
+									</div>
+								</div>
+							</div>
+
+							<div class="vf-note">
+								<h4>Key notes</h4>
+								<ul>
+									<li><b>Forgetting is the strongest problem.</b> 83% found a garment they had forgotten about, and 36% bought something almost identical to what they already owned. Together, 86% (55 of 64) had at least one of the two. This is the core case for the digital wardrobe.</li>
+									<li><b>People second-guess what goes with what.</b> 64% often or always ask themselves whether they own something to match a piece they like.</li>
+									<li><b>Getting dressed is not slow or hard for most.</b> 88% choose an outfit in under 10 minutes, and only 11% find combining clothes hard. The pain is forgetting and uncertainty, not time lost every morning.</li>
+									<li><b>The space is open.</b> Only 1 of the 45 people who answered uses a dedicated wardrobe app (Whering), and 19 skipped the question. Organising is still manual: 48% sort by category and 36% by season.</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="card">
+							<h3>2B. Problem validation: buying online</h3>
+							<p>Does uncertainty about fit hold people back from buying clothes online, and does it cause returns? This tests the try-on.</p>
+
+							<div class="vf-stats">
+								<div class="vf-stat"><b>56%</b><span>buy mostly or only in-store</span></div>
+								<div class="vf-stat"><b>86%</b><span>hold back an online order over size or how it looks on them</span></div>
+								<div class="vf-stat"><b>48%</b><span>of online buyers returned an order in the last 6 months</span></div>
+								<div class="vf-stat"><b>34%</b><span>ordered the same item in two sizes to return one</span></div>
+							</div>
+
+							<div class="vf-charts">
+								<div class="vf-chart-block">
+									<div class="vf-sub">How they usually buy clothes</div>
+									<div class="vf-canvas-wrap">
+										<canvas id="chart-channel" role="img" aria-label="Pie chart: only in-store 13%, mostly in-store 44%, equally both 23%, mostly online 19%, only online 2%">Only in-store 13%, mostly in-store 44%, equally both 23%, mostly online 19%, only online 2%.</canvas>
+									</div>
+									<div class="vf-legend"></div>
+								</div>
+							</div>
+
+							<div class="vf-bars">
+								<div class="vf-bar-block">
+									<div class="vf-sub">What makes them delay an online order</div>
+									<span class="vf-base">% of 64 respondents, several answers allowed</span>
+									<div class="vf-canvas-wrap vf-bar-canvas">
+										<canvas id="chart-delay" role="img" aria-label="Bar chart: size doubts 72%, how it looks on my body 66%, material differs from photos 42%, shipping cost 14%, fit with my clothes 13%">Size doubts 72%, how it looks on my body 66%, material differs 42%, shipping cost 14%, fit with my clothes 13%.</canvas>
+									</div>
+									<span class="vf-key"><span class="vf-swatch" style="--vf-sw: #eda100"></span>Problems EasyFits aims to address</span>
+								</div>
+
+								<div class="vf-bar-block">
+									<div class="vf-sub">Why they returned clothes</div>
+									<span class="vf-base">% of the 39 people who have returned clothes, several answers allowed</span>
+									<div class="vf-canvas-wrap vf-bar-canvas">
+										<canvas id="chart-return" role="img" aria-label="Bar chart: size didn't fit 77%, looked different on me 41%, quality not as expected 41%, didn't match my other clothes 5%">Size didn't fit 77%, looked different on me 41%, quality not as expected 41%, didn't match my other clothes 5%.</canvas>
+									</div>
+									<span class="vf-key"><span class="vf-swatch" style="--vf-sw: #eda100"></span>Problems EasyFits aims to address</span>
+								</div>
+							</div>
+
+							<div class="vf-note">
+								<h4>Key notes</h4>
+								<ul>
+									<li><b>Stores still lead.</b> 56% buy mostly or only in-store, against 20% mostly or only online, and 14 respondents (22%) don't buy clothes online at all. Only 22 of the 63 who answered say they enjoy trying clothes on in a store, so the in-store habit is not just about liking fitting rooms.</li>
+									<li><b>Fit is the main blocker.</b> 86% (55 of 64) delay an online order because they don't know if the size fits or how the item looks on their body. These are the two doubts a 3D try-on targets.</li>
+									<li><b>Returns come from the same doubts.</b> Of the 39 people who have returned clothes, 90% (35) did so because of size or because the item looked different on them.</li>
+									<li><b>People already work around it.</b> 34% have ordered one item in two sizes to return one, and 48% of online buyers returned at least one order in the last 6 months.</li>
+									<li><b>What we don't solve.</b> Material differing from the photos (42% of respondents), poor quality (41% of returners) and shipping cost (14%) are not things a 3D try-on fixes.</li>
+								</ul>
+								<p class="vf-caveat">Multiple answers were allowed in the delay and return charts, so those bars add up to more than 100%. "Online buyers" means the 50 respondents who buy clothes online.</p>
+							</div>
+						</div>
+
+					</div>
             <div id="val-interviews" role="tabpanel" hidden>
                 <div class="card"><h3>Interviews</h3><p>Replace this with the interviews results.</p></div>
             </div>

@@ -11,7 +11,7 @@
     --t3-bg:#e9f3d9;--t3-line:#cfe0b0;--t3-t:#486814;--t3-n:#34500f;
     --t4-bg:#fbe6a2;--t4-line:#eacb70;--t4-t:#946200;--t4-n:#5e3f00;
     --display:'Bricolage Grotesque',Georgia,sans-serif;--body:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
-    --tabs-h:49px; /* updated from js/main.js to the real tab bar height */
+    --rail-w:72px;--rail-open-w:300px; /* side navigation: collapsed / expanded width */
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
     --bg:#121815;--surface:#1b231e;--ink:#e8eeea;--muted:#a3b0a7;--line:#2b362f;
@@ -23,9 +23,10 @@
     --t4-bg:#342a10;--t4-line:#54431a;--t4-t:#f0b94a;--t4-n:#f9db8c;
 }}
 *{box-sizing:border-box}
-html{color-scheme:light dark;scroll-behavior:smooth;padding-top:env(safe-area-inset-top,0px);
-    scroll-padding-top:calc(env(safe-area-inset-top,0px) + var(--tabs-h) + 60px)}
+html{color-scheme:light;scroll-behavior:smooth;padding-top:env(safe-area-inset-top,0px);
+    scroll-padding-top:calc(env(safe-area-inset-top,0px) + 20px)}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--body)}
+@media (min-width:721px){body{padding-left:var(--rail-w)}}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0}
 
@@ -45,22 +46,47 @@ h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0}
         repeating-linear-gradient(90deg,var(--tape-ink) 0 1.5px,transparent 1.5px 60px) bottom/100% 18px no-repeat,
         var(--tape)}
 
-/* ---------- Top-level tabs (M1, M2, ...) ---------- */
-.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:var(--surface);border-bottom:1px solid var(--line)}
-.tabs .wrap{display:flex;gap:8px;overflow-x:auto;padding:8px 20px}
-.tabs a{white-space:nowrap;text-decoration:none;color:var(--muted);font:800 1.05rem var(--display);
-    padding:6px 20px;border-radius:99px;border:1px solid transparent}
-.tabs a:first-child{margin-left:auto}.tabs a:last-child{margin-right:auto}
-.tabs a:hover{background:var(--sage-soft);color:var(--ink)}
-.tabs a.active{background:var(--sage);color:#fff}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs a.active{color:#0f1512}}
+/* ---------- Side navigation: milestone tabs + sections of the active tab ---------- */
+/* Collapsed rail with the M1/M2 badges; expands over the page on hover (or keyboard focus).
+   js/main.js fills .sn-sections from the .subnav links inside the loaded tab. */
+.sidenav{--sn-open:0;position:fixed;inset:0 auto 0 0;z-index:20;width:var(--rail-w);
+    display:flex;flex-direction:column;gap:6px;overflow:hidden auto;
+    padding:calc(env(safe-area-inset-top,0px) + 14px) 8px 16px;
+    background:var(--surface);border-right:6px solid var(--tape);
+    transition:width .22s ease,box-shadow .22s ease}
+.sidenav:hover,.sidenav.open,.sidenav:has(:focus-visible){width:var(--rail-open-w);--sn-open:1;box-shadow:8px 0 28px rgba(28,38,31,.16)}
 
-/* ---------- In-tab section menu (used by M1, M2, ...) ---------- */
-.subnav{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--tabs-h));z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
-.subnav .wrap{display:flex;gap:4px;overflow-x:auto;padding:8px 20px}
-.subnav a{white-space:nowrap;text-decoration:none;color:var(--muted);font-size:1rem;font-weight:500;padding:6px 12px;border-radius:8px}
-.subnav a:first-child{margin-left:auto}.subnav a:last-child{margin-right:auto}
-.subnav a:hover{background:var(--sage-soft);color:var(--ink)}
+.sidenav a[data-tab]{display:flex;align-items:center;gap:14px;padding:4px;border-radius:99px;
+    text-decoration:none;color:var(--muted);font:800 1.1rem var(--display);white-space:nowrap}
+.sidenav a[data-tab]:hover{background:var(--sage-soft);color:var(--ink)}
+.sidenav a[data-tab].active{color:var(--ink)}
+.sn-badge{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;
+    background:var(--sage-soft);color:var(--ink);font:800 .95rem var(--display)}
+.sidenav a[data-tab].active .sn-badge{background:var(--sage);color:#fff}
+.sn-label{opacity:var(--sn-open);transition:opacity .15s ease}
+
+.sn-sections{display:none;flex-direction:column;margin:0 0 8px 24px;padding-left:14px;border-left:2px solid var(--line)}
+.sidenav:hover .sn-sections:not(:empty),.sidenav.open .sn-sections:not(:empty),.sidenav:has(:focus-visible) .sn-sections:not(:empty){display:flex}
+.sn-sections a{white-space:nowrap;text-decoration:none;color:var(--muted);font-size:1rem;font-weight:500;padding:7px 12px;border-radius:8px}
+.sn-sections a:hover{background:var(--sage-soft);color:var(--ink)}
+.sn-sections a.current{color:var(--ink);font-weight:600;box-shadow:inset 3px 0 var(--tape)}
+
+/* The original in-page section menu is replaced by the side navigation (its links are still read by js/main.js) */
+.subnav{display:none}
+
+/* Phones have no hover: the rail becomes a drawer opened with a round menu button */
+.sn-fab{display:none;position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);left:10px;z-index:21;
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;
+    justify-items:center;align-content:center;gap:4px;box-shadow:0 2px 10px rgba(28,38,31,.18)}
+.sn-fab span{display:block;width:18px;height:2px;border-radius:2px;background:var(--ink)}
+@media (max-width:720px){
+    .sidenav{width:var(--rail-open-w);max-width:85vw;transform:translateX(-102%);transition:transform .22s ease,box-shadow .22s ease}
+    .sidenav.open{transform:none}
+    .sidenav:hover:not(.open){width:var(--rail-open-w);--sn-open:0;box-shadow:none}
+    .sn-fab{display:grid}
+    .hero{padding-top:84px}
+}
+@media (prefers-reduced-motion:reduce){.sidenav,.sn-label{transition:none}}
 
 /* ---------- Shared building blocks (sections, cards, grid) ---------- */
 section{padding:56px 0 0}
