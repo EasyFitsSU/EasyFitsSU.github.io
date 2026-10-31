@@ -261,3 +261,137 @@
     font-size: 0.9rem;
     color: var(--muted);
 }
+
+/* ---- Validation > Interviews tab ---- */
+
+#val-interviews .stack {
+    display: grid;
+    gap: 16px;
+}
+
+/* YouTube thumbnail that links to the video */
+.video-card {
+    max-width: 480px;
+    margin: 0 auto 16px;
+}
+
+.video-link {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #000;
+}
+
+.video-link img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .3s ease, opacity .3s ease;
+}
+
+.video-link:hover img {
+    transform: scale(1.03);
+    opacity: .85;
+}
+
+.video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    padding-left: 5px;                 /* optically centres the triangle */
+    border-radius: 50%;
+    background: var(--tape);
+    color: var(--tape-ink);
+    font-size: 1.8rem;
+}
+
+.video-label {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    padding: 4px 12px;
+    border-radius: 99px;
+    background: rgba(0, 0, 0, .65);
+    color: #fff;
+    font: 600 .95rem var(--body);
+}
+
+/* Transcript dialog */
+.dialog {
+    padding: 0;
+    width: min(760px, 92vw);
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.dialog::backdrop {
+    background: rgba(0, 0, 0, .55);
+}
+
+.dialog-box {
+    display: flex;
+    flex-direction: column;
+    max-height: 85vh;
+}
+
+.dialog-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--line);
+    background: var(--t1-bg);
+}
+
+.dialog-head h3 {
+    font-size: 1.4rem;
+    color: var(--t1-t);
+}
+
+.dialog-close {
+    appearance: none;
+    cursor: pointer;
+    border: 0;
+    background: none;
+    color: var(--ink);
+    font-size: 2rem;
+    line-height: 1;
+    padding: 0 8px;
+    border-radius: 8px;
+}
+
+.dialog-close:hover {
+    background: var(--sage-soft);
+}
+
+.dialog-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 20px;
+    font-size: 1.1rem;
+    --c-t: var(--t1-t);
+    --c-n: var(--t2-n);
+    --c-line: var(--t1-line);
+}
+
+.dialog-body p {
+    margin: 0 0 .9em;
+}
+
+html:has(dialog[open]) {
+    overflow: hidden;
+}
