@@ -66,14 +66,14 @@
 }
 
 /* Summary boxes */
-#val-forms .vf-stats {
+:is(#val-forms, #conclusions) .vf-stats {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
     margin: 10px 0 18px;
 }
 
-#val-forms .vf-stat {
+:is(#val-forms, #conclusions) .vf-stat {
     flex: 1 1 120px;
     padding: 16px 12px;
     border-radius: 10px;
@@ -82,7 +82,7 @@
     text-align: center;
 }
 
-#val-forms .vf-stat b {
+:is(#val-forms, #conclusions) .vf-stat b {
     display: block;
     font-size: 2.4em;
     font-weight: 800;
@@ -90,7 +90,7 @@
     line-height: 1;
 }
 
-#val-forms .vf-stat span {
+:is(#val-forms, #conclusions) .vf-stat span {
     display: block;
     font-size: 1rem;
     color: #fff;
@@ -246,7 +246,7 @@
 }
 
 /* ---- Key notes box ---- */
-#val-forms .vf-note {
+:is(#val-forms, #conclusions) .vf-note {
     margin-top: 14px;
     padding: 14px 16px;
     border-left: 4px solid var(--tape);
@@ -256,28 +256,28 @@
     font-size: 1rem;
 }
 
-#val-forms .vf-note h4 {
+:is(#val-forms, #conclusions) .vf-note h4 {
     margin: 0 0 8px;
     font: 800 1.2rem var(--display);
     color: var(--c-t);
 }
 
-#val-forms .vf-note ul {
+:is(#val-forms, #conclusions) .vf-note ul {
     margin: 0 0 10px;
     padding-left: 20px;
 }
 
-#val-forms .vf-note li {
+:is(#val-forms, #conclusions) .vf-note li {
     margin-bottom: 6px;
 }
 
-#val-forms .vf-note .vf-caveat {
+:is(#val-forms, #conclusions) .vf-note .vf-caveat {
     margin: 0;
     font-size: 0.9rem;
     color: var(--muted);
 }
 
-#val-forms .vf-note .vf-label {
+:is(#val-forms, #conclusions) .vf-note .vf-label {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -285,7 +285,7 @@
     font: 800 1rem var(--display);
 }
 
-#val-forms .vf-note .vf-label::before {
+:is(#val-forms, #conclusions) .vf-note .vf-label::before {
     content: "";
     width: 10px;
     height: 10px;
@@ -293,15 +293,15 @@
     background: currentColor;
 }
 
-#val-forms .vf-note .vf-label.pro { color: var(--t1-t); }
-#val-forms .vf-note .vf-label.con { color: #b3261e; }
+:is(#val-forms, #conclusions) .vf-note .vf-label.pro { color: var(--t1-t); }
+:is(#val-forms, #conclusions) .vf-note .vf-label.con { color: #b3261e; }
 
-#val-forms .vf-note ul.vf-con {
+:is(#val-forms, #conclusions) .vf-note ul.vf-con {
     list-style: none;
     padding-left: 0;
 }
 
-#val-forms .vf-note ul.vf-con li {
+:is(#val-forms, #conclusions) .vf-note ul.vf-con li {
     padding: 10px 14px;
     border-left: 4px solid #b3261e;
     background: rgba(179, 38, 30, 0.08);
