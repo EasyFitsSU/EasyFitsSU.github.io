@@ -1,14 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta name="color-scheme" content="light">
 	<title>EasyFits | Project Description</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap">
 	<link rel="stylesheet" href="styles.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 </head>
 <body>
+
+<!-- Menu button, only visible on phones (the side navigation opens on hover elsewhere) -->
+<button type="button" class="sn-fab" id="sn-fab" aria-label="Open menu" aria-controls="tabs" aria-expanded="false">
+	<span></span><span></span><span></span>
+</button>
+
+<!-- Side navigation. To add a tab: copy a link + sections pair here, add it to the TABS array in js/main.js,
+     and create a folder in components/. The sections under the active tab are filled in by js/main.js. -->
+<nav class="sidenav" id="tabs" aria-label="Milestones">
+	<a href="#m1" data-tab="m1"><span class="sn-badge">M1</span><span class="sn-label">Milestone 1</span></a>
+	<div class="sn-sections" data-for="m1"></div>
+	<a href="#m2" data-tab="m2"><span class="sn-badge">M2</span><span class="sn-label">Milestone 2</span></a>
+	<div class="sn-sections" data-for="m2"></div>
+</nav>
 
 <header class="hero">
 	<div class="wrap">
@@ -27,14 +43,8 @@
 </header>
 <div class="tape" aria-hidden="true"></div>
 
-<!-- Top-level tabs. To add a tab: add a link here + an entry in js/main.js + a folder in components/ -->
-<div class="tabs" id="tabs" role="tablist" aria-label="Milestones"><div class="wrap">
-	<a href="#m1" data-tab="m1" role="tab">M1</a>
-	<a href="#m2" data-tab="m2" role="tab">M2</a>
-</div></div>
-
 <!-- The active tab's component (components/*.html) is injected here -->
-<main id="view" role="tabpanel" aria-live="polite">
+<main id="view" aria-live="polite">
 	<noscript><div class="wrap"><p>This page needs JavaScript enabled to load its content.</p></div></noscript>
 </main>
 
