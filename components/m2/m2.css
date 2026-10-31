@@ -313,3 +313,66 @@
 @media (max-width: 760px) {
     #val-forms .vf-charts > :only-child { grid-column: 1 / -1 !important; }
 }
+
+/* ---- Validation > Interviews tab ---- */
+
+#val-interviews .stack {
+    display: grid;
+    gap: 16px;
+}
+
+/* YouTube thumbnail that links to the video */
+.video-card {
+    max-width: 480px;
+    margin: 0 auto 16px;
+}
+
+.video-link {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #000;
+}
+
+.video-link img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .3s ease, opacity .3s ease;
+}
+
+.video-link:hover img {
+    transform: scale(1.03);
+    opacity: .85;
+}
+
+.video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    padding-left: 5px;
+    border-radius: 50%;
+    background: var(--tape);
+    color: var(--tape-ink);
+    font-size: 1.8rem;
+}
+
+.video-label {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    padding: 4px 12px;
+    border-radius: 99px;
+    background: rgba(0, 0, 0, .65);
+    color: #fff;
+    font: 600 .95rem var(--body);
+}
