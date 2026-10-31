@@ -12,7 +12,7 @@
  * on the page always come from one place.
  */
 
-const PIE_COLORS = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4'];
+const PIE_COLORS = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#8e7cc3'];
 const HIGHLIGHT  = '#eda100'; // bars for problems EasyFits aims to address
 
 const CHARTS = {
@@ -28,17 +28,19 @@ const CHARTS = {
     'chart-organise': { type: 'pie', base: 64,
         labels: ['By category', 'By season', 'Not at all', 'By colour'],
         counts: [31, 23, 7, 3] },
-    'chart-duplicate': { type: 'pie', base: 64,
-        labels: ['No', 'Yes', 'Not sure', 'No answer'],
-        counts: [36, 23, 4, 1] },
-
-    'chart-match': { type: 'pie', base: 64,
-        labels: ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'],
-        counts: [4, 3, 16, 31, 10] },
+    'chart-forgotten': { type: 'pie', base: 64,
+        labels: ['Yes', 'No'],
+        counts: [53, 11] },
+    'chart-plan': { type: 'pie', base: 64,
+        labels: ['Rarely', 'Sometimes', 'Often', 'Always'],
+        counts: [12, 31, 17, 4] },
     'chart-dress-time': { type: 'pie', base: 64,
         labels: ['Under 2 min', '2-5 min', '5-10 min', '10-20 min', 'Over 20 min'],
         counts: [10, 23, 23, 7, 1] },
-    'chart-combine': { type: 'bar', base: 63,
+    'chart-multi-outfit': { type: 'bar', base: 64, highlight: [2, 3, 4],
+        labels: [['1', 'never'], '2', '3', '4', ['5', 'always']],
+        counts: [8, 27, 19, 8, 2] },
+    'chart-combine': { type: 'bar', base: 63, highlight: [2, 3, 4],
         labels: [['1', 'very easy'], '2', '3', '4', ['5', 'very hard']],
         counts: [14, 20, 22, 6, 1] },
 
@@ -46,12 +48,49 @@ const CHARTS = {
     'chart-channel': { type: 'pie', base: 64,
         labels: ['Only in-store', 'Mostly in-store', 'Equally both', 'Mostly online', 'Only online'],
         counts: [8, 28, 15, 12, 1] },
+    'chart-match': { type: 'pie', base: 64,
+        labels: ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'],
+        counts: [4, 3, 16, 31, 10] },
+    'chart-duplicate': { type: 'pie', base: 63,
+        labels: ['No', 'Yes', 'Not sure'],
+        counts: [36, 23, 4] },
+    'chart-two-sizes': { type: 'pie', base: 64,
+        labels: ['Never', 'A few times', 'Once', 'Always when unsure'],
+        counts: [42, 12, 6, 4] },
+    'chart-returns-count': { type: 'pie', base: 64,
+        labels: ['None', '1-2', '3-5', 'Over 6', "Don't buy online"],
+        counts: [26, 15, 7, 2, 14] },
+    'chart-fitting': { type: 'bar', base: 63,
+        labels: [['1', 'dislike'], '2', '3', '4', ['5', 'love']],
+        counts: [7, 16, 18, 16, 6] },
     'chart-delay': { type: 'bar', base: 64, highlight: [0, 1, 4],
-        labels: [['Size', 'doubts'], ['How it looks', 'on my body'], ['Material differs', 'from photos'], ['Shipping', 'cost'], ['Fit with', 'my clothes']],
+        labels: [['Size', 'doubts'], ['Look on', 'my body'], ['Material', 'differs'], ['Shipping', 'cost'], ['Fit with', 'my clothes']],
         counts: [46, 42, 27, 9, 8] },
     'chart-return': { type: 'bar', base: 39, highlight: [0, 1, 3],
-        labels: [["Size didn't", 'fit'], ['Looked different', 'on me than in photos'], ['Quality not', 'as expected'], ["Didn't match", 'my other clothes']],
-        counts: [30, 16, 16, 2] }
+        labels: [["Size", "didn't fit"], ['Looked', 'different', 'on me'], ['Quality', 'not as', 'expected'], ["Didn't", 'match my', 'clothes']],
+        counts: [30, 16, 16, 2] },
+
+    /* ---------- 3. Opinions on the app ---------- */
+    'chart-3d-interest': { type: 'pie', base: 64,
+        labels: ['Very unlikely', 'Unlikely', 'Neutral', 'Likely', 'Very likely'],
+        counts: [7, 5, 9, 29, 14] },
+    'chart-scan-share': { type: 'pie', base: 64,
+        labels: ['Over 75%', '50-75%', '25-50%', '10-25%', 'Under 10%', 'None'],
+        counts: [15, 9, 17, 9, 7, 7] },
+    'chart-pricing': { type: 'pie', base: 64,
+        labels: ['Free, limited features', 'One-time payment', 'Monthly or yearly'],
+        counts: [42, 15, 7] },
+    'chart-discourage': { type: 'bar', base: 64, highlight: [0, 1],
+        labels: [['Scan', 'time'], ['Privacy'], ['Would use', 'it once'], ['Not', 'discouraged'], ['Model', 'quality'], ["Don't", 'need it']],
+        counts: [39, 26, 7, 7, 5, 5] },
+    'chart-features': { type: 'bar', base: 64,
+        labels: [['Try-on with', 'store clothes'], ['Try-on with', 'my clothes'], ['Outfit', 'suggestions'], ['360° view'], ['Wardrobe', 'organisation']],
+        counts: [40, 37, 34, 18, 15] },
+
+    /* ---------- 4. Existing apps ---------- */
+    'chart-prior-app': { type: 'pie', base: 45,
+        labels: ['Never used a similar app', 'Used a wardrobe app'],
+        counts: [44, 1] }
 };
 
 const charts = {}; // id -> { chart, canvas }
@@ -67,7 +106,7 @@ function fillLegend(canvas, cfg) {
         const row = document.createElement('span');
         const sw = document.createElement('span');
         sw.className = 'vf-swatch';
-        sw.style.setProperty('--vf-sw', PIE_COLORS[i]);
+        sw.style.setProperty('--vf-sw', PIE_COLORS[i % PIE_COLORS.length]);
         row.append(sw, `${label} ${pct(cfg.counts[i], cfg.base)}%`);
         legend.appendChild(row);
     });
@@ -100,7 +139,7 @@ function buildPie(canvas, cfg) {
             labels: cfg.labels,
             datasets: [{
                 data: cfg.counts,
-                backgroundColor: PIE_COLORS.slice(0, cfg.counts.length),
+                backgroundColor: cfg.counts.map((_, i) => PIE_COLORS[i % PIE_COLORS.length]),
                 borderWidth: 2,
                 borderColor: '#fff'
             }]
@@ -148,9 +187,9 @@ function buildBar(canvas, cfg) {
                 x: {
                     grid: { display: false },
                     border: { color: cssVar('--line') },
-                    ticks: { color: cssVar('--ink'), autoSkip: false, maxRotation: 0, font: { size: 12 } }
+                    ticks: { color: cssVar('--ink'), autoSkip: false, maxRotation: 0, font: { size: 11 } }
                 },
-                y: { display: false, beginAtZero: true, suggestedMax: Math.max(...values) * 1.1 }
+                y: { display: false, beginAtZero: true, suggestedMax: Math.max(...values) * 1.15 }
             }
         },
         plugins: [barValueLabels]

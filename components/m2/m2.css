@@ -105,45 +105,70 @@
     text-align: center;
 }
 
-/* ---- Pie charts ----
-   One grid row per part (title / pie / legend) shared by every pie in a row, so the
-   centres of the pies sit on one line however long the titles are. Fixed-width columns
-   with space-evenly give the same space between the pies and between the pies and the sides.
-   Change --pie to make every pie bigger or smaller. */
-#val-forms .vf-charts {
+/* ---- Chart rows (pies and bars) ----
+   Both .vf-charts (pies) and .vf-bars (bar charts) use a 6-column grid.
+   Rule: charts go two per line; with an ODD number of charts the LAST line holds three
+   (e.g. 3 = 3, 5 = 2+3, 7 = 2+2+3). Even numbers are all 2+2+2...
+   Nothing to configure: just add or remove blocks in the HTML.
+   On phones every chart gets its own line. Change --pie for pie size, --gap-x / --gap-y for spacing. */
+#val-forms .vf-charts,
+#val-forms .vf-bars {
     --pie: 200px;
+    --gap-x: 40px;
+    --gap-y: 48px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, var(--pie));
-    justify-content: space-evenly;
-    column-gap: 0;
-    row-gap: 10px;
-    margin: 8px 0 0;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--gap-y) var(--gap-x);
+    align-items: start;
+    margin: 12px 0 8px;
 }
 
-#val-forms .vf-chart-block {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 3;
-    justify-items: center;
-    min-width: 0;
-    margin-bottom: 26px;
+#val-forms .vf-charts > *,
+#val-forms .vf-bars > * {
+    grid-column: span 3;                                   /* two per line */
 }
 
-#val-forms .vf-chart-block .vf-sub {
-    align-self: end;                   /* title sits right above its pie */
-    width: calc(100% + 60px);          /* titles may be wider than the pie */
-    margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.25;
+#val-forms .vf-charts:has(> :nth-child(odd):last-child) > :nth-last-child(-n+3),
+#val-forms .vf-bars:has(> :nth-child(odd):last-child) > :nth-last-child(-n+3) {
+    grid-column: span 2;                                   /* odd count: last three share a line */
+}
+
+@media (max-width: 760px) {
+    #val-forms .vf-charts > *,
+    #val-forms .vf-bars > * { grid-column: 1 / -1 !important; }
 }
 
 #val-forms .vf-canvas-wrap {
-    position: relative;
-    height: 180px;
+    position: relative;                /* Chart.js sizes the canvas from this box */
     width: 100%;
+    height: 180px;
+}
+
+#val-forms .vf-sub {
+    margin: 0 0 10px;
+    font-size: 1.05rem;
+    line-height: 1.3;
+}
+
+/* Pie block: title (fixed minimum height so pies line up) / pie / legend */
+#val-forms .vf-chart-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+}
+
+#val-forms .vf-chart-block .vf-sub {
+    display: flex;
+    align-items: flex-end;             /* title sits right above its pie */
+    justify-content: center;
+    width: 100%;
+    min-height: 4.1em;                 /* room for 3 lines */
+    margin: 0 0 12px;
 }
 
 #val-forms .vf-chart-block .vf-canvas-wrap {
+    width: var(--pie);
     height: var(--pie);
 }
 
@@ -151,12 +176,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;           /* swatches stay in a neat column */
-    align-self: start;
-    gap: 4px;
+    gap: 5px;
     width: max-content;
     max-width: 100%;
-    font-size: 0.9em;
-    opacity: 0.9;
+    margin-top: 16px;
+    font-size: 0.92rem;
+    line-height: 1.3;
 }
 
 #val-forms .vf-swatch {
@@ -166,67 +191,57 @@
     height: 10px;
     border-radius: 2px;
     background: var(--vf-sw);
-    margin-right: 5px;
+    margin-right: 6px;
     vertical-align: middle;
 }
 
-/* ---- Vertical bar charts ----
-   Two per row; title, subtitle, chart and key each get a shared row, so the bars of
-   neighbouring charts start on the same line. Text is centred over the chart. */
-#val-forms .vf-bars {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 32px;
-    row-gap: 6px;
-    margin: 8px 0 0;
-}
-
+/* Bar block: title / base / chart / key, text centred */
 #val-forms .vf-bar-block {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 4;
+    display: flex;
+    flex-direction: column;
     min-width: 0;
-    margin-bottom: 26px;
     text-align: center;
 }
 
-#val-forms .vf-bar-block:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-}
-
-/* a single bar chart in its own row stays a sensible width and centred */
-#val-forms .vf-bar-block:only-child {
-    max-width: 560px;
-    width: 100%;
-    justify-self: center;
-}
-
-@media (max-width: 760px) {
-    #val-forms .vf-bars { grid-template-columns: 1fr; }
-}
-
 #val-forms .vf-bar-block .vf-sub {
-    align-self: end;
-    margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.25;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 2.7em;
+    margin: 0 0 4px;
 }
 
 #val-forms .vf-base {
-    align-self: start;
-    margin: 0 0 6px;
+    margin: 0 0 10px;
     font-size: 0.9rem;
     color: var(--muted);
 }
 
 #val-forms .vf-bar-canvas {            /* stays below .vf-canvas-wrap so the taller height wins */
-    height: 250px;
+    height: 260px;
 }
 
 #val-forms .vf-key {
-    align-self: start;
-    margin-top: 4px;
+    margin-top: 8px;
     font-size: 0.9rem;
+    color: var(--muted);
+}
+
+/* ---- Section headings inside the Forms tab (2A / 2B) ---- */
+#val-forms .vf-part {
+    margin: 28px 0 0;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+}
+
+#val-forms .vf-part h3 {
+    font: 800 1.5rem var(--display);
+    color: var(--c-t, var(--t1-t));
+    margin: 0 0 6px;
+}
+
+#val-forms .vf-part > p {
+    margin: 0 0 4px;
     color: var(--muted);
 }
 
@@ -260,4 +275,41 @@
     margin: 0;
     font-size: 0.9rem;
     color: var(--muted);
+}
+
+#val-forms .vf-note .vf-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 14px 0 8px;
+    font: 800 1rem var(--display);
+}
+
+#val-forms .vf-note .vf-label::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+#val-forms .vf-note .vf-label.pro { color: var(--t1-t); }
+#val-forms .vf-note .vf-label.con { color: #b3261e; }
+
+#val-forms .vf-note ul.vf-con {
+    list-style: none;
+    padding-left: 0;
+}
+
+#val-forms .vf-note ul.vf-con li {
+    padding: 10px 14px;
+    border-left: 4px solid #b3261e;
+    background: rgba(179, 38, 30, 0.08);
+    border-radius: 0 8px 8px 0;
+}
+
+/* A single chart in its own row stays centred */
+#val-forms .vf-charts > :only-child { grid-column: 3 / span 2 !important; }
+@media (max-width: 760px) {
+    #val-forms .vf-charts > :only-child { grid-column: 1 / -1 !important; }
 }
