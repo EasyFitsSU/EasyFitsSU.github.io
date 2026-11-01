@@ -376,3 +376,9 @@
     color: #fff;
     font: 600 .95rem var(--body);
 }
+/* Interview recordings (Interviews 2-5) */
+#val-interviews .interview-audio {
+    display: block;
+    width: 100%;
+    margin: 4px 0 12px;
+}
