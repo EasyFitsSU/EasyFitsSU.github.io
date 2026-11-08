@@ -10,7 +10,7 @@
  * The section links shown under the active tab in the side navigation are copied
  * automatically from the <nav class="subnav"> inside that tab's HTML.
  */
-const TABS = ['m1', 'm2'];
+const TABS = ['m1', 'm2', 'm3'];
 const DEFAULT_TAB = 'm1';
 
 const htmlUrl = t => `components/${t}/${t}.html`;
