@@ -1,0 +1,33 @@
+/* M4-only styles. Loaded when the M4 tab is active, disabled when it isn't.
+   Shared variables, .card, .grid, h2, etc. come from /styles.css */
+
+/* ---------- Interviews ---------- */
+.m4-interviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:16px}
+.m4-interview{display:flex;flex-direction:column}
+.m4-who{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.m4-avatar{flex:none;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:var(--tape);color:var(--tape-ink);font:800 1.1rem var(--display)}
+.m4-who h3{font-size:1.2rem}
+.m4-meta{margin:2px 0 0;color:var(--muted);font-size:.9rem}
+.card .m4-points-title{margin:4px 0 0;font-weight:600}
+.card .m4-points{margin:6px 0 0;padding-left:1.2em}
+.m4-points li{margin-top:6px}
+
+/* YouTube thumbnail that links to the video (same look as in M2) */
+.video-link{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;margin-bottom:14px;
+    border:1px solid var(--line);border-radius:12px;background:#000}
+.video-link img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .3s ease,opacity .3s ease}
+.video-link:hover img{transform:scale(1.03);opacity:.85}
+.video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:grid;place-items:center;
+    width:60px;height:60px;padding-left:4px;border-radius:50%;background:var(--tape);color:var(--tape-ink);font-size:1.5rem}
+.video-label{position:absolute;left:10px;bottom:10px;padding:3px 10px;border-radius:99px;
+    background:rgba(0,0,0,.65);color:#fff;font:600 .85rem var(--body)}
+
+/* ---------- Changes ---------- */
+.m4-changes{margin:8px 0 0;padding-left:1.4em}
+.m4-changes li{margin-top:8px}
+.card .note a{color:var(--link)}
+
+/* ---------- Wireframe frame (the wireframe keeps its own styles and script inside the iframe) ---------- */
+.wf-frame{margin-top:16px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)}
+.wf-frame iframe{display:block;width:100%;height:85vh;min-height:600px;border:0}
