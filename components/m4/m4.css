@@ -1,9 +1,18 @@
 /* M4-only styles. Loaded when the M4 tab is active, disabled when it isn't.
    Shared variables, .card, .grid, h2, etc. come from /styles.css */
 
+/* ---------- Mobile overflow & table containment fix ---------- */
+.wrap,
+.wrap > section,
+section > .card {
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
 /* ---------- Interviews ---------- */
 .m4-interviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:16px}
-.m4-interview{display:flex;flex-direction:column}
+.m4-interview{display:flex;flex-direction:column;min-width:0}
 .m4-who{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .m4-avatar{flex:none;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
     background:var(--tape);color:var(--tape-ink);font:800 1.1rem var(--display)}
@@ -29,7 +38,13 @@
 #persona .card .vf-note{margin-top:14px}
 
 /* ---------- User stories ---------- */
-.m4-table-wrap{overflow-x:auto}
+.m4-table-wrap{
+  display:block;
+  width:100%;
+  max-width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
 .m4-table{width:100%;min-width:680px;border-collapse:collapse;font-size:.95rem}
 .m4-table th,.m4-table td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
 .m4-table th{color:var(--muted);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
@@ -43,6 +58,16 @@
 .m4-prio-must{background:var(--tape);border-color:var(--tape);color:var(--tape-ink)}
 .m4-prio-should{border-color:var(--tape);color:inherit}
 .m4-prio-could{border-style:dashed}
+
+@media (max-width: 768px) {
+  .m4-table-wrap::before {
+    content: "\2190  Swipe horizontally to view full table  \2192";
+    display: block;
+    font-size: .8rem;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+}
 
 /* ---------- Changes ---------- */
 .m4-changes{margin:8px 0 0;padding-left:1.4em}
@@ -73,7 +98,7 @@ section > .card + .wf-frame{margin-top:24px}
 
 /* ---------- Diagrams ---------- */
 .m4-diagrams{display:grid;gap:32px}
-.m4-diagram{margin:0}
+.m4-diagram{margin:0;min-width:0}
 .m4-diagram h3{margin:0 0 14px}
 .m4-diagram a{display:block}
 .m4-diagram img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
