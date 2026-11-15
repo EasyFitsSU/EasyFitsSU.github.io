@@ -75,6 +75,8 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(fals
 
 /* ---------- Scroll reveal ---------- */
 
+/* ---------- Scroll reveal ---------- */
+
 function initReveal(root) {
     if (observer) observer.disconnect();
     const items = root.querySelectorAll('section h2, .lead, .card, .member');
@@ -89,7 +91,7 @@ function initReveal(root) {
                 observer.unobserve(e.target);
             }
         });
-    }, { threshold: .15 });
+    }, { threshold: 0.01 });
     items.forEach(el => observer.observe(el));
 }
 
