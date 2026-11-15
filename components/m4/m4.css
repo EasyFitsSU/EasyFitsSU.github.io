@@ -23,6 +23,27 @@
 .video-label{position:absolute;left:10px;bottom:10px;padding:3px 10px;border-radius:99px;
     background:rgba(0,0,0,.65);color:#fff;font:600 .85rem var(--body)}
 
+/* ---------- User persona ---------- */
+#persona .card h4{margin:16px 0 4px;font-weight:600}
+#persona .card .vf-stats,
+#persona .card .vf-note{margin-top:14px}
+
+/* ---------- User stories ---------- */
+.m4-table-wrap{overflow-x:auto}
+.m4-table{width:100%;min-width:680px;border-collapse:collapse;font-size:.95rem}
+.m4-table th,.m4-table td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.m4-table th{color:var(--muted);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.m4-table tbody tr:last-child td{border-bottom:0}
+.m4-table td:first-child{font-weight:700;white-space:nowrap}
+.m4-table td:nth-child(3),.m4-table td:nth-child(4),.m4-table td:nth-child(5){white-space:nowrap}
+.m4-acc{display:block;margin-top:8px;padding-left:10px;border-left:3px solid var(--line);color:var(--muted);font-size:.9rem}
+.m4-acc b{color:inherit}
+
+.m4-prio{display:inline-block;padding:2px 10px;border-radius:99px;font:700 .8rem var(--body);border:1.5px solid var(--line);color:var(--muted)}
+.m4-prio-must{background:var(--tape);border-color:var(--tape);color:var(--tape-ink)}
+.m4-prio-should{border-color:var(--tape);color:inherit}
+.m4-prio-could{border-style:dashed}
+
 /* ---------- Changes ---------- */
 .m4-changes{margin:8px 0 0;padding-left:1.4em}
 .m4-changes li{margin-top:8px}
@@ -31,3 +52,29 @@
 /* ---------- Wireframe frame (the wireframe keeps its own styles and script inside the iframe) ---------- */
 .wf-frame{margin-top:16px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)}
 .wf-frame iframe{display:block;width:100%;height:85vh;min-height:600px;border:0}
+
+/* ---------- Spacing between blocks ---------- */
+.wrap > section + section{margin-top:56px}
+section > .card + .card,
+section > .card + .stack,
+section > .card + .m4-interviews,
+section > .card + .m4-usecases,
+section > .card + .m4-diagrams,
+section > .card + .wf-frame{margin-top:24px}
+#persona .stack .grid{gap:24px}
+
+/* ---------- Use cases ---------- */
+.m4-usecases{display:grid;gap:32px}
+.m4-usecases .card h4{margin:16px 0 4px;font-weight:600}
+.m4-usecases .card p{margin:6px 0}
+.m4-usecases .card ol,
+.m4-usecases .card ul{margin:6px 0 0;padding-left:1.4em}
+.m4-usecases .card li{margin-top:6px}
+
+/* ---------- Diagrams ---------- */
+.m4-diagrams{display:grid;gap:32px}
+.m4-diagram{margin:0}
+.m4-diagram h3{margin:0 0 14px}
+.m4-diagram a{display:block}
+.m4-diagram img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+.m4-diagram figcaption{margin-top:14px;color:var(--muted);font-size:.95rem}

@@ -1,6 +1,6 @@
 <!-- M4 component: loaded into <main id="view"> by js/main.js -->
 <nav class="subnav" aria-label="Sections"><div class="wrap">
-	<a href="#interviews">Interviews</a><a href="#changes">What we changed</a><a href="#revised-wireframe">Revised wireframe</a>
+	<a href="#interviews">Interviews</a><a href="#persona">User persona</a><a href="#user-stories">User stories</a><a href="#use-cases">Use cases</a><a href="#diagrams">Diagrams</a><a href="#changes">What we changed</a><a href="#revised-wireframe">Revised wireframe</a>
 </div></nav>
 
 <div class="wrap">
@@ -31,6 +31,15 @@
 					<li>The home screen should show the wardrobe items, not the suggestions.</li>
 					<li>The &ldquo;Scan my body&rdquo; button should be bigger and easier to find.</li>
 				</ul>
+				<p class="m4-points-title">Also mentioned</p>
+				<ul class="m4-points">
+					<li>She called the virtual try-on and the Shop suggestions &ldquo;really cool&rdquo; and said she would use the app.</li>
+					<li>She wants outfit ideas for the weather, the season and the occasion, and a place to keep outfits grouped by type, e.g. &ldquo;Weekend casual&rdquo;.</li>
+					<li>She likes filters and thinks in categories.</li>
+					<li>Her weight changes, even through the month, so she prefers to scan herself again rather than type in measurements.</li>
+					<li>She wants to be told about new pieces from brands she likes, instead of searching.</li>
+					<li>She skims screens (&ldquo;I&rsquo;ll just click Next and not read&rdquo;), so a small button gets skipped.</li>
+				</ul>
 			</article>
 
 			<article class="card m4-interview">
@@ -51,6 +60,12 @@
 					<li>The Outfits tab was confusing: he thought it showed outfit suggestions instead of his own outfits.</li>
 					<li>Scanning should use photos instead of a video.</li>
 					<li>When scanning a piece, it should be clear that you don&rsquo;t have to put the clothes on: you only need to fit the item in the frame.</li>
+				</ul>
+				<p class="m4-points-title">Also mentioned</p>
+				<ul class="m4-points">
+					<li>He wants outfit ideas that fit the weather, the season and the occasion.</li>
+					<li>He prefers quick actions, such as a few photos, over long processes.</li>
+					<li>He can&rsquo;t try a piece he finds online if the shop isn&rsquo;t in the app.</li>
 				</ul>
 			</article>
 
@@ -73,7 +88,388 @@
 					<li>She also thought the Outfits tab showed suggestions, not her own outfits, and proposed the title &ldquo;Outfits you created&rdquo;.</li>
 					<li>She would like to sort her outfits into categories, the way she organises them in everyday life.</li>
 				</ul>
+				<p class="m4-points-title">Also mentioned</p>
+				<ul class="m4-points">
+					<li>She wants outfit ideas that fit the weather, the season and the occasion.</li>
+					<li>She wants to change a suggested outfit by swapping pieces.</li>
+					<li>She likes filters and thinks in categories.</li>
+				</ul>
 			</article>
+		</div>
+	</section>
+
+	<section id="persona">
+		<h2>User persona</h2>
+		<div class="card">
+			<p>Based on three face-to-face interviews with users aged 22&ndash;24 testing the Milestone 3 wireframe, we put together
+				one persona that represents them. Tags like [Interview 1] show which interview a point comes from.</p>
+		</div>
+
+		<div class="stack">
+			<div class="grid">
+
+				<div class="card rich">
+					<header class="m4-who">
+						<span class="m4-avatar" aria-hidden="true">A</span>
+						<div>
+							<h3>Ana</h3>
+							<p class="m4-meta">Young adults who want to get more out of the clothes they own</p>
+						</div>
+					</header>
+
+
+					<ul>
+						<li><strong>Age:</strong> 23 (the three interviewees were 22&ndash;24)</li>
+						<li><strong>Occupation:</strong> Student / junior employee</li>
+						<li><strong>Location:</strong> Bucure&#537;ti, Romania</li>
+						<li><strong>Device:</strong> Smartphone, used for almost everything</li>
+						<li><strong>Segment:</strong> Young adults who want to get more out of the clothes they own</li>
+					</ul>
+
+					<h4>About Ana</h4>
+					<p>Ana is a young adult who likes to look put together but doesn&rsquo;t want to spend time on it. She is comfortable
+						with apps and expects them to make sense immediately. She skims forms and screens: if the main action isn&rsquo;t
+						obvious, she moves past it (&ldquo;I&rsquo;ll just click Next and not read&rdquo; [Interview 1]). She is curious about new
+						tech, but only if it is fast and effortless.</p>
+
+					<h4>Attitude towards technology</h4>
+					<p>Open to new things and quick to like useful features: Andra called the virtual try-on and Shop suggestions
+						&ldquo;really cool&rdquo; and said she would use the app [Interview 1]. Her patience is short, though. When the app is
+						unclear, she gets confused or moves on rather than exploring.</p>
+				</div>
+
+				<div class="card rich">
+					<h3>Goals</h3>
+					<ul>
+						<li>Get outfit ideas that fit the weather, the season and the occasion (work, casual, party) [Interview 1, Interview 2, Interview 3]</li>
+						<li>Reuse outfits she has already put together, grouped by type, e.g. &ldquo;Weekend casual&rdquo; [Interview 1]</li>
+						<li>Organise her outfits the way she does in everyday life, by category [Interview 3]</li>
+						<li>Build her digital wardrobe quickly, without much effort [Interview 2, Interview 3]</li>
+						<li>Stay up to date with new pieces from brands she likes, without searching [Interview 1]</li>
+						<li>See how clothes look on her own body before trying them on [Interview 1]</li>
+						<li>Save time deciding what to wear in the morning</li>
+					</ul>
+				</div>
+
+				<div class="card rich">
+					<h3>Frustrations</h3>
+					<ul>
+						<li>Slow setup: filming a video of each piece or of her body is more effort than she wants; she would rather take a few photos [Interview 2, Interview 3]</li>
+						<li>Unclear labels: she assumes a tab contains suggestions when it contains her own outfits [Interview 2, Interview 3]</li>
+						<li>Key actions that are easy to miss: a small button gets skipped [Interview 1]</li>
+						<li>Not knowing what to do when scanning clothes: she wonders whether she has to wear the piece [Interview 2, Interview 3]</li>
+						<li>A changing body: her weight fluctuates (even through the month), so typed-in measurements go out of date and she prefers to scan herself again [Interview 1]</li>
+						<li>Pieces she can&rsquo;t try: she finds something she likes online but can&rsquo;t test it if the shop isn&rsquo;t in the app [Interview 2]</li>
+						<li>Forgetting what she owns, so some clothes are never worn</li>
+					</ul>
+				</div>
+
+				<div class="card rich">
+					<h3>Behaviours and habits</h3>
+					<ul>
+						<li>Expects her own wardrobe first when opening a wardrobe app, not suggestions [Interview 1]</li>
+						<li>Thinks in categories (casual, work, summer, winter...) and likes filters [Interview 1, Interview 3]</li>
+						<li>Prefers quick actions (photos, taps) over long processes [Interview 2, Interview 3]</li>
+						<li>Doesn&rsquo;t follow every new release by herself and likes to be told [Interview 1]</li>
+						<li>Shops in well-known brands (H&amp;M, Zara, Cropp, Pull&amp;Bear)</li>
+					</ul>
+				</div>
+
+				<div class="card rich">
+					<h3>Motivations</h3>
+					<ul>
+						<li>Saving time and effort every day</li>
+						<li>Getting value from clothes she already owns</li>
+						<li>Confidence in how she looks</li>
+						<li>Trying new styles without risk</li>
+					</ul>
+				</div>
+
+				<div class="card rich">
+					<h3>What she expects from EasyFits</h3>
+					<ul>
+						<li>A setup that takes minutes, not an afternoon [Interview 2, Interview 3]</li>
+						<li>Suggestions that adapt to weather, season and occasion [Interview 1, Interview 2, Interview 3]</li>
+						<li>A clear difference between suggested outfits and her own outfits [Interview 2, Interview 3]</li>
+						<li>Her own organisation system (categories) respected [Interview 3]</li>
+						<li>A realistic view of clothes on her body, including when it changes [Interview 1]</li>
+						<li>Being notified about new pieces from partner brands [Interview 1]</li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<section id="user-stories">
+		<h2>User stories</h2>
+		<div class="card">
+			<p>We turned what Ana needs into 14 user stories, ordered by how the wireframe is used. Each story has acceptance criteria
+				that say when it is done. Priorities follow MoSCoW (Must, Should, Could).</p>
+		</div>
+
+		<div class="card">
+			<div class="m4-table-wrap">
+				<table class="m4-table">
+					<thead>
+						<tr><th>ID</th><th>User story</th><th>Priority</th><th>Screens</th><th>Source</th></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>US-01</td>
+							<td>As Ana, I want to see my wardrobe as soon as I open the app, so that I don&rsquo;t have to look for my clothes.
+								<span class="m4-acc"><b>Acceptance:</b> the app opens on My wardrobe with the user&rsquo;s items; suggestions are not on the home screen, they have their own tab.</span></td>
+							<td><span class="m4-prio m4-prio-must">Must</span></td>
+							<td>E3</td>
+							<td>Interview 1</td>
+						</tr>
+						<tr>
+							<td>US-02</td>
+							<td>As Ana, I want to add a piece by taking a few photos, so that building my wardrobe takes minutes, not an afternoon.
+								<span class="m4-acc"><b>Acceptance:</b> guided front, back and detail photos; the tip says I don&rsquo;t have to wear the item; Confirm is available only after all 3 photos; the piece appears in the wardrobe.</span></td>
+							<td><span class="m4-prio m4-prio-must">Must</span></td>
+							<td>E11&ndash;E13</td>
+							<td>Interview 2, Interview 3</td>
+						</tr>
+						<tr>
+							<td>US-03</td>
+							<td>As Ana, I want to be told I don&rsquo;t have to wear the item when scanning it, so that I can scan clothes lying on my bed.
+								<span class="m4-acc"><b>Acceptance:</b> the scan screen shows a tip that the item can be laid flat or hung up and only has to fit inside the frame; the tip is visible before the first photo.</span></td>
+							<td><span class="m4-prio m4-prio-must">Must</span></td>
+							<td>E12</td>
+							<td>Interview 2, Interview 3</td>
+						</tr>
+						<tr>
+							<td>US-04</td>
+							<td>As Ana, I want to scan my body from 3 photos, so that I can see clothes on a model that matches me, even when my body changes.
+								<span class="m4-acc"><b>Acceptance:</b> guided front, side and back photos with clear instructions; the 3D body model is updated after Confirm; the user can scan again at any time.</span></td>
+							<td><span class="m4-prio m4-prio-must">Must</span></td>
+							<td>E14&ndash;E15</td>
+							<td>Interview 1, Interview 3</td>
+						</tr>
+						<tr>
+							<td>US-05</td>
+							<td>As Ana, I want to find the &ldquo;Scan my body&rdquo; button easily, so that I don&rsquo;t skip it by mistake.
+								<span class="m4-acc"><b>Acceptance:</b> &ldquo;Scan my body&rdquo; is the main button, centred at the bottom of the screen and visible without scrolling; setting sizes by hand stays available as the alternative.</span></td>
+							<td><span class="m4-prio m4-prio-should">Should</span></td>
+							<td>E14</td>
+							<td>Interview 1</td>
+						</tr>
+						<tr>
+							<td>US-06</td>
+							<td>As Ana, I want to filter my wardrobe by category and tags (Casual, Summer, Work...), so that I find a piece quickly.
+								<span class="m4-acc"><b>Acceptance:</b> category chips and a Filter button that opens the tag filters; the grid shows only matching items; the number of active filters is visible; Clear all resets them.</span></td>
+							<td><span class="m4-prio m4-prio-must">Must</span></td>
+							<td>E3&ndash;E4</td>
+							<td>Interview 1, Interview 3</td>
+						</tr>
+						<tr>
+							<td>US-07</td>
+							<td>As Ana, I want to build outfits from the pieces I own, so that I can reuse looks that work.
+								<span class="m4-acc"><b>Acceptance:</b> the builder goes through tops, bottoms, shoes and coats, one piece each or skipped; the 3D model shows the outfit; after Save outfit the user gives the outfit a name and picks one or more categories, and it is added to the user&rsquo;s outfits.</span></td>
+							<td><span class="m4-prio m4-prio-must">Must</span></td>
+							<td>E9&ndash;E10</td>
+							<td>Interview 1</td>
+						</tr>
+						<tr>
+							<td>US-08</td>
+							<td>As Ana, I want my own outfits in a tab clearly separate from suggestions, so that I never confuse them.
+								<span class="m4-acc"><b>Acceptance:</b> the tab is titled &ldquo;Outfits you created&rdquo; and lists only outfits the user saved; suggested outfits appear only in the Suggestions tab.</span></td>
+							<td><span class="m4-prio m4-prio-must">Must</span></td>
+							<td>E9 (title &ldquo;Outfits you created&rdquo;)</td>
+							<td>Interview 2, Interview 3</td>
+						</tr>
+						<tr>
+							<td>US-09</td>
+							<td>As Ana, I want to sort my outfits into categories, so that I organise them the way I do in real life.
+								<span class="m4-acc"><b>Acceptance:</b> filter chips (Casual, Work, Party, Sport, Summer, Winter) use a subset of the wardrobe tags; each outfit gets its categories when it is saved; All shows every outfit.</span></td>
+							<td><span class="m4-prio m4-prio-should">Should</span></td>
+							<td>E9</td>
+							<td>Interview 3</td>
+						</tr>
+						<tr>
+							<td>US-10</td>
+							<td>As Ana, I want daily outfit suggestions based on weather, season and occasion, so that I decide what to wear in seconds.
+								<span class="m4-acc"><b>Acceptance:</b> the Suggestions tab shows today&rsquo;s outfit with a short reason why it works, plus more ideas; suggestions are built from the user&rsquo;s own pieces and adapt to weather, season and occasion.</span></td>
+							<td><span class="m4-prio m4-prio-must">Must</span></td>
+							<td>E7</td>
+							<td>Interview 1, Interview 2, Interview 3</td>
+						</tr>
+						<tr>
+							<td>US-11</td>
+							<td>As Ana, I want to customise a suggested outfit by swapping pieces, so that it fits what I feel like wearing.
+								<span class="m4-acc"><b>Acceptance:</b> a suggestion can be opened in the outfit builder; any piece can be swapped for another one from the wardrobe; the result can be saved to the user&rsquo;s outfits.</span></td>
+							<td><span class="m4-prio m4-prio-should">Should</span></td>
+							<td>E7, E10</td>
+							<td>Interview 3</td>
+						</tr>
+						<tr>
+							<td>US-12</td>
+							<td>As Ana, I want to try a piece from a partner store on my model, so that I see how it looks on me before going to the store.
+								<span class="m4-acc"><b>Acceptance:</b> stores and their scanned items can be browsed; the item page has Try on my model, which shows the piece on the user&rsquo;s 3D body model, and a link to buy at the store.</span></td>
+							<td><span class="m4-prio m4-prio-should">Should</span></td>
+							<td>E16&ndash;E18</td>
+							<td>Interview 1, Interview 2</td>
+						</tr>
+						<tr>
+							<td>US-13</td>
+							<td>As Ana, I want to be notified when a partner brand adds new pieces, so that I don&rsquo;t have to search for them.
+								<span class="m4-acc"><b>Acceptance:</b> Settings has a Notifications option that can be turned on or off; when on, the user is notified about new pieces from partner stores.</span></td>
+							<td><span class="m4-prio m4-prio-could">Could</span></td>
+							<td>E16, E19</td>
+							<td>Interview 1</td>
+						</tr>
+						<tr>
+							<td>US-14</td>
+							<td>As Ana, I want to see which of my pieces go together, so that I can combine them with less effort.
+								<span class="m4-acc"><b>Acceptance:</b> the item page has a Goes with list of the user&rsquo;s own pieces, showing how often they were paired or that we think they match.</span></td>
+							<td><span class="m4-prio m4-prio-could">Could</span></td>
+							<td>E5</td>
+							<td>Assumption</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<section id="use-cases">
+		<h2>Use cases</h2>
+		<div class="card">
+			<p>Four use cases show how Ana moves through the screens for the main tasks of the app. Screen codes
+				refer to the wireframe (E = Everyday use, F = First launch).</p>
+		</div>
+
+		<div class="m4-usecases">
+			<div class="card rich">
+				<h3>UC-01: Scan a piece of clothing</h3>
+				<p><strong>Preconditions:</strong> She is logged in and has allowed camera access.</p>
+				<p><strong>Entry points:</strong> the Scan tab (E11) or, for a new user, the step &ldquo;Scan your first piece&rdquo; on the empty Home (F2).</p>
+				<h4>Main flow</h4>
+				<ol>
+					<li>On the bottom navigation she taps <em>Scan</em> (E11).</li>
+					<li>She taps <em>Scan a piece</em> (E12).</li>
+					<li>She reads the tip: &ldquo;You don&rsquo;t need to wear it.&rdquo;</li>
+					<li>She lays the item flat or hangs it up and fits it in the frame.</li>
+					<li>She takes 3 photos: front, back, detail.</li>
+					<li>She taps <em>Confirm scan</em>.</li>
+					<li>On <em>Review your piece</em> (E13) she checks the 3D model, name, category and tags.</li>
+					<li>She taps <em>Save to wardrobe</em>.</li>
+				</ol>
+				<h4>Alternative flows</h4>
+				<ul>
+					<li><strong>5a.</strong> A photo is blurry or badly framed &rarr; <em>Retake</em> (the current photo is taken again).</li>
+					<li><strong>5b.</strong> She prefers an existing photo &rarr; <em>Gallery</em>.</li>
+					<li><strong>7a.</strong> The 3D model looks wrong &rarr; <em>Rescan</em> (back to step 4).</li>
+					<li><strong>Any step:</strong> <em>Close</em> cancels the scan and returns to E11.</li>
+				</ul>
+				<h4>Result</h4>
+				<p>The piece appears in Home (E3) with its category and tags.</p>
+			</div>
+
+			<div class="card rich">
+				<h3>UC-02: Build my body model</h3>
+				<p><strong>Preconditions:</strong> She is logged in and has allowed camera access.</p>
+				<p><strong>Entry points:</strong> the Scan tab (E11) or, for a new user, the step &ldquo;Build your 3D model&rdquo; on the empty Home (F2).</p>
+				<h4>Main flow</h4>
+				<ol>
+					<li>She taps <em>Scan</em> (E11) &rarr; <em>Scan or build your model</em>.</li>
+					<li>On <em>Build your model</em> (E14) she taps <em>Scan my body</em>.</li>
+					<li>She takes 3 photos, standing about 2 m away: front, side, back (E15).</li>
+					<li>She taps <em>Confirm scan</em>.</li>
+					<li>The 3D body model is created and shown.</li>
+				</ol>
+				<h4>Alternative flows</h4>
+				<ul>
+					<li><strong>2a.</strong> She doesn&rsquo;t want to scan &rarr; she enters height, chest, waist, hips and taps <em>Save my sizes</em>.</li>
+					<li><strong>3a.</strong> A photo is not good &rarr; <em>Retake</em>.</li>
+					<li><strong>Later,</strong> her body changes &rarr; she repeats the scan to update the model.</li>
+				</ul>
+				<h4>Result</h4>
+				<p>Her model is saved and used in try-on (E5, E18) and in outfits (E10).</p>
+			</div>
+
+			<div class="card rich">
+				<h3>UC-03: Create an outfit</h3>
+				<p><strong>Preconditions:</strong> She has at least a few pieces in her wardrobe.</p>
+				<h4>Main flow</h4>
+				<ol>
+					<li>She opens <em>Outfits</em> (E9) and taps <em>+ New</em>.</li>
+					<li>In the Outfit builder (E10) she chooses a top (step 1 of 4), then <em>Next: Bottoms</em>.</li>
+					<li>She repeats for bottoms, shoes and coats. Each step can be skipped (&ldquo;No top&rdquo;).</li>
+					<li>She sees the outfit on her 3D model.</li>
+					<li>She taps <em>Save outfit</em>.</li>
+					<li>She gives the outfit a name and picks one or more categories.</li>
+				</ol>
+				<h4>Alternative flows</h4>
+				<ul>
+					<li><strong>1a.</strong> She has no outfits yet &rarr; the Outfits tab shows <em>Outfits (empty)</em> (F4); she taps <em>Create outfit</em> and continues at step 2.</li>
+					<li><strong>3a.</strong> She has no pieces for a step &rarr; she skips it.</li>
+					<li><strong>5a.</strong> She leaves before saving &rarr; <em>Back</em>, nothing is saved.</li>
+				</ul>
+				<h4>Result</h4>
+				<p>The outfit appears in &ldquo;Outfits you created&rdquo; (E9), where the filter chips (All, Casual, Work, Party, Sport, Summer, Winter) help her find outfits by category.</p>
+			</div>
+
+			<div class="card rich">
+				<h3>UC-04: See today&rsquo;s suggestion</h3>
+				<p><strong>Preconditions:</strong> She has pieces in her wardrobe.</p>
+				<h4>Main flow</h4>
+				<ol>
+					<li>She opens <em>Suggestions</em> (E7).</li>
+					<li>She sees &ldquo;Today&rsquo;s suggestion&rdquo; on her 3D model, with a short reason why it works.</li>
+					<li>She browses <em>More ideas</em>.</li>
+					<li>She optionally opens the <em>Style guide</em> (E8).</li>
+				</ol>
+				<h4>Alternative flows</h4>
+				<ul>
+					<li><strong>1a.</strong> Her wardrobe is empty &rarr; <em>Suggestions (empty)</em> (F3) with the button <em>Scan a piece</em>.</li>
+					<li><strong>2a.</strong> She wants to change a piece &rarr; she taps <em>Customise outfit</em>, swaps it in the outfit builder (E10) and can save it with <em>Save outfit</em>.</li>
+				</ul>
+				<h4>Result</h4>
+				<p>She knows what to wear today.</p>
+			</div>
+		</div>
+	</section>
+
+	<section id="diagrams">
+		<h2>Diagrams</h2>
+		<div class="card">
+			<p>Four flow diagrams show how Ana moves between screens in the main situations. Diamonds are decision points.</p>
+		</div>
+
+		<div class="m4-diagrams">
+			<figure class="card m4-diagram">
+				<h3>Flow 1: First launch &rarr; ready to use</h3>
+				<a href="images/diagrama1.png" target="_blank" rel="noopener">
+					<img src="images/diagrama1.png" alt="Flow 1: from the Welcome screen and account creation to an empty Home, then building the body model or scanning a first piece, and creating a first outfit through the empty Outfits screen" loading="lazy">
+				</a>
+				<figcaption>A new user creates an account and starts from an empty wardrobe. She builds her body model or scans a first piece. Scanning the first piece unlocks creating an outfit.</figcaption>
+			</figure>
+
+			<figure class="card m4-diagram">
+				<h3>Flow 2: Add a piece</h3>
+				<a href="images/diagrama2.png" target="_blank" rel="noopener">
+					<img src="images/diagrama2.png" alt="Flow 2: from Home through Scan, Scan a piece, three photos and Review to Save to wardrobe" loading="lazy">
+				</a>
+				<figcaption>Ana scans a piece from 3 photos, retaking them or rescanning if needed, and saves it to her wardrobe.</figcaption>
+			</figure>
+
+			<figure class="card m4-diagram">
+				<h3>Flow 3: Create an outfit</h3>
+				<a href="images/diagrama3.png" target="_blank" rel="noopener">
+					<img src="images/diagrama3.png" alt="Flow 3: from Outfits and + New through the four builder steps (tops, bottoms, shoes, coats) and Save outfit, then naming the outfit and choosing its categories" loading="lazy">
+				</a>
+				<figcaption>She goes through four builder steps, choosing or skipping a piece in each, saves the outfit and gives it a name and categories. It then appears in Outfits you created, where she can filter by category.</figcaption>
+			</figure>
+
+			<figure class="card m4-diagram">
+				<h3>Flow 4: See today&rsquo;s suggestion</h3>
+				<a href="images/diagrama4.png" target="_blank" rel="noopener">
+					<img src="images/diagrama4.png" alt="Flow 4: from Suggestions, either keeping the suggestion or asking for more ideas or customising it, with an optional Style guide and an empty state when the wardrobe has no pieces" loading="lazy">
+				</a>
+				<figcaption>She looks at today&rsquo;s suggestion and either keeps it, asks for more ideas or customises it, and can open the style guide. With an empty wardrobe she sees the empty Suggestions screen and is sent to scan a piece.</figcaption>
+			</figure>
 		</div>
 	</section>
 
@@ -87,11 +483,11 @@
 					and the style guide) moved to the second tab, where the wardrobe used to be, and is now called <em>Suggestions</em>.</li>
 				<li><strong>&ldquo;My outfits&rdquo; is now &ldquo;Outfits you created&rdquo;</strong>, so it is clear these are your own
 					outfits and not the suggested ones.</li>
-				<li><strong>Scanning uses photos instead of video.</strong> Clothes and the user's body are scanned from a few guided
+				<li><strong>Scanning uses photos instead of video.</strong> Clothes and the user&rsquo;s body are scanned from a few guided
 					photos (front, back, side) instead of recording a 360&deg; video. When scanning a piece, a tip
 					reminds you that you don&rsquo;t need to wear it: just lay it flat or hang it up and fit it in the frame.</li>
 				<li><strong>Outfits can be filtered by category.</strong> &ldquo;Outfits you created&rdquo; now has filter chips
-					(Casual, Work, Party, Sport, Summer, Winter) that use the same tags as the wardrobe.</li>
+					(Casual, Work, Party, Sport, Summer, Winter), a subset of the tags used in the wardrobe.</li>
 				<li><strong>&ldquo;Scan my body&rdquo; is easier to find.</strong> It used to be a small toggle at the top of the body model
 					screen. It is now the main button, centred at the bottom of the screen, where it is easier to see and reach.</li>
 			</ol>
