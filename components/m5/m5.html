@@ -1,0 +1,195 @@
+<!-- M5 component: loaded into <main id="view"> by js/main.js
+     Numbers come from components/m5/m5.js (LEADS object). Text marked TODO still needs to be filled in by hand. -->
+<nav class="subnav" aria-label="Sections"><div class="wrap">
+	<a href="#campaign">Campaign</a><a href="#results">Results</a><a href="#posts">Posts</a>
+	<a href="#comparison">Channel comparison</a><a href="#replays">Session replays</a><a href="#takeaways">Takeaways</a>
+</div></nav>
+
+<div class="wrap m5">
+
+	<section id="campaign">
+		<h2>Lead generation campaign</h2>
+		<div class="card">
+			<p>From <span data-m5="from"></span> to <span data-m5="to"></span> we shared the
+				<a href="https://valentinstefanescu22.github.io/EasyFits-LandingPage/" target="_blank" rel="noopener">EasyFits landing page</a>
+				through WhatsApp, Discord and Reddit to collect emails from people who want to hear when the app launches.</p>
+			<div class="m5-setup">
+				<div>
+					<h3>How we collect leads</h3>
+					<p>A sign-up form at the bottom of the landing page asks for an email address. The email goes to a Google Form,
+						so the list of leads stays with us and never reaches the analytics tool.</p>
+				</div>
+				<div>
+					<h3>How we measure</h3>
+					<p>PostHog (EU servers) records visits, clicks on the call to action, sign-ups and interactions with the 3D demo.
+						It runs without cookies, so visitors don&rsquo;t need to accept a consent banner. Every shared link carries a
+						<code>utm_source</code> tag, so we know which channel each visitor came from. Our own team&rsquo;s visits and
+						localhost are excluded from all numbers.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="results">
+		<h2>Results</h2>
+		<div class="card">
+			<div class="m5-stats">
+				<div class="m5-stat"><b data-m5="visitors"></b><span>visitors</span></div>
+				<div class="m5-stat"><b data-m5="demoInteract"></b><span>played with the 3D demo</span></div>
+				<div class="m5-stat"><b data-m5="formLeads"></b><span>emails collected</span></div>
+				<div class="m5-stat"><b data-m5="conversion"></b><span>of visitors signed up</span></div>
+			</div>
+			<p class="note">Also measured: average session <span data-m5="sessionDuration"></span>,
+				bounce rate <span data-m5="bounceRate"></span>.</p>
+
+			<div class="m5-chart">
+				<h3>Visitors per day</h3>
+				<div class="m5-canvas"><canvas id="m5-traffic" role="img" aria-label="Line chart of landing page visitors per day during the campaign"></canvas></div>
+			</div>
+		</div>
+
+		<div class="card">
+			<h3>What visitors did</h3>
+			<p>How many of our visitors took each action. Roughly half of them tried the 3D demo, and more than a quarter left their email.</p>
+			<div id="m5-funnel" class="m5-funnel"></div>
+			<p class="note">Each bar counts unique visitors who did that action, so it is not a strict step-by-step funnel:
+				a visitor can sign up without clicking the call to action first, which is why sign-ups (15) are higher than
+				call-to-action clicks (12).</p>
+		</div>
+	</section>
+
+	<section id="posts">
+		<h2>Posts</h2>
+
+		<!-- TODO: add the screenshots to images/m5/, replace each TODO-permalink with the real link
+		     and the subreddit names. WhatsApp chats have no public link, so that card has no link. -->
+		<div class="m5-posts">
+			<article class="card m5-post">
+				<a class="m5-shot" href="images/m5/post-whatsapp-1.png" target="_blank" rel="noopener">
+					<img src="images/m5/post-whatsapp-1.png" alt="Our message sharing the landing page on WhatsApp" loading="lazy">
+				</a>
+				<span class="m5-channel">WhatsApp</span>
+				<h3>Messages to people we know</h3>
+				<p>We sent the link directly to friends and contacts. It brought 32 visitors, 23 of whom played with the demo,
+					and 11 sign-ups.</p>
+			</article>
+
+			<article class="card m5-post">
+				<a class="m5-shot" href="TODO-permalink" target="_blank" rel="noopener">
+					<img src="images/m5/post-discord-1.png" alt="Our post on Discord" loading="lazy">
+				</a>
+				<span class="m5-channel">Discord</span>
+				<h3>Discord servers</h3>
+				<p>We posted the link in Discord communities. It brought 5 visitors, and 3 of them signed up.</p>
+			</article>
+
+			<article class="card m5-post">
+				<a class="m5-shot" href="TODO-permalink" target="_blank" rel="noopener">
+					<img src="images/m5/post-reddit-1.png" alt="Our post on Reddit" loading="lazy">
+				</a>
+				<span class="m5-channel">Reddit</span>
+				<h3>r/TODO</h3>
+				<p>We made more than 15 posts in different subreddits, but only one of them became public. Reddit&rsquo;s filters removed
+					most of the others, so the channel brought only 2 visitors and no sign-ups.</p>
+				<a class="m5-link" href="TODO-permalink" target="_blank" rel="noopener">Open the post</a>
+			</article>
+		</div>
+	</section>
+
+	<section id="comparison">
+		<h2>Channel comparison</h2>
+		<div class="card">
+			<p>Visitors and sign-ups per channel, from PostHog broken down by the <code>utm_source</code> tag on each link.</p>
+			<div class="m5-table-wrap">
+				<table class="m5-table" id="m5-channels">
+					<thead>
+					<tr><th>Channel</th><th>Visitors</th><th>Demo interactions</th><th>CTA clicks</th><th>Sign-ups</th><th>Signup rate</th></tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+			<p class="note">&ldquo;Direct / other&rdquo; are visitors who arrived without a tracked source, for example by opening a link
+				copied from a chat or typing the address.</p>
+		</div>
+
+		<div class="m5-best-card">
+			<p class="m5-best-label">Best channel</p>
+			<h3 data-m5-best></h3>
+			<p>WhatsApp delivered 32 of our 53 visitors (about 60%) and 11 of our 15 sign-ups. Its 34.4% signup rate is well above
+				the average of the other channels. Sharing directly with people we know meant high trust, and visitors engaged deeply
+				with the demo: 72% of them played with it.</p>
+		</div>
+
+		<div class="grid m5-verdicts">
+			<article class="card">
+				<h3>WhatsApp</h3>
+				<p>Our strongest channel by a wide margin, for both traffic and sign-ups. We would keep using it, but it only reaches
+					people close to us, so it will not scale on its own.</p>
+			</article>
+			<article class="card">
+				<h3>Discord</h3>
+				<p>Only 5 visitors, but 3 signed up (60%), the best rate of any channel. It suggests the audience there matches the
+					product. We would test it again with more posts before drawing conclusions.</p>
+			</article>
+			<article class="card">
+				<h3>Reddit</h3>
+				<p>Almost no traffic and no sign-ups, mostly because our posts never became public. Reddit&rsquo;s spam filters
+					removed most of them. We would build up the account first and try again.</p>
+			</article>
+			<article class="card">
+				<h3>Direct / other</h3>
+				<p>11 visitors with 1 sign-up (9.1%) and no demo interactions. They engaged the least of any group, which suggests
+					that a personal message or a post gives much better context than a bare link.</p>
+			</article>
+		</div>
+
+		<div class="card" style="margin-top:24px">
+			<h3>What went wrong on Reddit</h3>
+			<p>We made more than 15 posts and only one became public. In about 80% of cases Reddit showed &ldquo;Sorry, this post was
+				removed by Reddit&rsquo;s filters&rdquo;, which means the automatic spam filter blocked it, not the subreddit moderators.
+				In the other 20% the post was waiting to be approved. The most likely reasons:</p>
+			<ul class="m5-list">
+				<li><b>New account or low karma.</b> Accounts with no history of comments and posts are treated with suspicion, especially when they post a link.</li>
+				<li><b>The link.</b> github.io is often used for spam and phishing, so filters flag it easily, and the utm parameters make it look more suspicious.</li>
+				<li><b>The same link in many places.</b> Posting the same text or link in several subreddits looks like spam, and a link used often can be flagged for later posts too.</li>
+				<li><b>Purely promotional posts.</b> The account had no other activity, and its only posts linked to our own project.</li>
+			</ul>
+			<p>Next time we would build up the account with normal comments first and use a custom domain instead of github.io.</p>
+		</div>
+	</section>
+
+	<section id="replays">
+		<h2>Session replays</h2>
+		<div class="card">
+			<p>We watched the recorded sessions in PostHog to see how visitors use the page.</p>
+			<ul class="m5-list">
+				<li><b>People like to play.</b> Many visitors spent their time trying out the animation and testing different things on the page.</li>
+				<li><b>Moving the model is the catchiest part.</b> Being able to rotate the 3D model around was what grabbed most visitors&rsquo; attention.</li>
+				<li><b>Only some want to know more.</b> A part of the visitors also looked at how the app works, but not all of them did.</li>
+			</ul>
+		</div>
+
+		<div class="card">
+			<h3>Heatmap</h3>
+			<p>Where visitors clicked on the landing page on mobile, from the PostHog heatmap.</p>
+			<!-- TODO: take the heatmap screenshot in PostHog and save it as images/m5/heatmap-mobile.png -->
+			<a class="m5-shot" style="max-width:320px;margin-left:auto;margin-right:auto" href="images/m5/heatmap-mobile.png" target="_blank" rel="noopener">
+				<img style="max-height:none" src="images/m5/heatmap-mobile.png" alt="PostHog click heatmap of the landing page on mobile" loading="lazy">
+			</a>
+		</div>
+
+	</section>
+
+	<section id="takeaways">
+		<h2>Takeaways</h2>
+		<div class="card">
+			<ul class="m5-list">
+				<li><b>Personal sharing worked best.</b> Sending the link directly (WhatsApp) beat posting in public communities (Reddit) for a very early-stage product.</li>
+				<li><b>Reddit did not work.</b> Of more than 15 posts only one became public, because Reddit&rsquo;s spam filters removed the rest. Two visitors and no sign-ups. A mistyped UTM tag also made the data harder to read.</li>
+				<li><b>Discord is promising.</b> The signup rate was the highest (60%), but 5 visitors is too few to be sure.</li>
+				<li><b>Next time:</b> double-check every UTM tag before posting, and test Discord and Reddit with more posts in more targeted communities.</li>
+			</ul>
+		</div>
+	</section>
+
+</div>
