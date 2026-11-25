@@ -79,4 +79,8 @@ section > .m5-best-card + .grid{margin-top:24px}
 .m5-list{margin:8px 0 0;padding-left:1.3em}
 .m5-list li{margin-top:8px}
 
+/* Screenshots inside the Reddit list: own line, full width (up to 640px), no overlap with the text */
+.m5-list .m5-img{display:block;width:100%;max-width:640px;height:auto;max-height:none;margin:12px 0;
+    border:1px solid var(--line);border-radius:12px}
+
 @media (prefers-reduced-motion:reduce){.m5-bar span{transition:none}}
