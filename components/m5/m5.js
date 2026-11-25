@@ -11,42 +11,42 @@
 
 const LEADS = {
 	/* Dates the campaign ran, as shown on the page */
-	period: { from: '17 Nov 2026', to: '24 Nov 2026' },
+	period: { from: '17 Nov 2026', to: '25 Nov 2026' },
 
 	/* PostHog > Web analytics, date range = campaign period (internal traffic excluded) */
 	web: {
-		visitors:   53,
+		visitors:   59,
 		pageviews:  null,      // not used on the page
-		sessionDuration: '1m 51s',
-		bounceRate: 32.1
+		sessionDuration: '1m 41s',
+		bounceRate: 35.6
 	},
 
 	/* Unique visitors per event, whole period, all sources.
 	 * These are counted per event, so signup can be higher than cta (people can sign up
 	 * without clicking the button). The page therefore shows each step as a share of all visitors. */
 	funnel: {
-		pageview: 53,
-		cta:      12,
-		signup:   15
+		pageview: 59,
+		cta:      14,
+		signup:   17
 	},
 
 	/* Extra events */
-	demoInteract: 28,       // PostHog: unique users who played with the 3D demo
-	formLeads:    15,       // TODO: check against the number of emails in the Google Form and change if it differs
+	demoInteract: 31,       // PostHog: unique users who played with the 3D demo
+	formLeads:    17,       // TODO: check against the number of emails in the Google Form and change if it differs
 
 	/* Visitors per day. Not available yet: while labels is empty the chart is hidden. */
 	daily: {
-		labels:   [],       // e.g. ['17 Nov', '18 Nov', ...]
-		visitors: []        // e.g. [3, 41, 18, ...]
+		labels:   ['17 Nov', '18 Nov', '19 Nov', '20 Nov', '21 Nov', '22 Nov', '23 Nov', '24 Nov', '25 Nov'],       // e.g. ['17 Nov', '18 Nov', ...]
+		visitors: [11, 0, 0, 6, 29, 2, 2, 3, 6]        // e.g. [3, 41, 18, ...]
 	},
 
 	/* One entry per channel (PostHog, broken down by UTM source).
 	 * Reddit combines the two mistyped tags "redditl" and "reddits". */
 	channels: [
-		{ name: 'WhatsApp',       visitors: 32, demo: 23, cta: 8, signups: 11 },
+		{ name: 'WhatsApp',       visitors: 33, demo: 24, cta: 9, signups: 12 },
 		{ name: 'Discord',        visitors: 5,  demo: 3,  cta: 1, signups: 3  },
 		{ name: 'Reddit',         visitors: 2,  demo: 0,  cta: 0, signups: 0  },
-		{ name: 'Direct / other', visitors: 11, demo: 0,  cta: 1, signups: 1  }
+		{ name: 'Direct / other', visitors: 19, demo: 4,  cta: 4, signups: 2  }
 	]
 };
 
