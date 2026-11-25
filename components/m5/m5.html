@@ -2,7 +2,7 @@
      Numbers come from components/m5/m5.js (LEADS object). Text marked TODO still needs to be filled in by hand. -->
 <nav class="subnav" aria-label="Sections"><div class="wrap">
 	<a href="#campaign">Campaign</a><a href="#results">Results</a><a href="#posts">Posts</a>
-	<a href="#comparison">Channel comparison</a><a href="#replays">Session replays</a><a href="#takeaways">Takeaways</a>
+	<a href="#comparison">Channel comparison</a><a href="#reddit">Reddit in detail</a><a href="#replays">Session replays</a><a href="#takeaways">Takeaways</a>
 </div></nav>
 
 <div class="wrap m5">
@@ -61,8 +61,6 @@
 	<section id="posts">
 		<h2>Posts</h2>
 
-		<!-- TODO: add the screenshots to images/m5/, replace each TODO-permalink with the real link
-		     and the subreddit names. WhatsApp chats have no public link, so that card has no link. -->
 		<div class="m5-posts">
 			<article class="card m5-post">
 				<a class="m5-shot" href="images/m5/post-whatsapp-1.png" target="_blank" rel="noopener">
@@ -85,13 +83,12 @@
 
 			<article class="card m5-post">
 				<a class="m5-shot" href="TODO-permalink" target="_blank" rel="noopener">
-					<img src="images/m5/post-reddit-1.png" alt="Our post on Reddit" loading="lazy">
+					<img src="images/m5/post-reddit-1.png" alt="One of our posts on Reddit" loading="lazy">
 				</a>
 				<span class="m5-channel">Reddit</span>
-				<h3>r/TODO</h3>
-				<p>We made more than 15 posts in different subreddits, but only one of them became public. Reddit&rsquo;s filters removed
-					most of the others, so the channel brought only 2 visitors and no sign-ups.</p>
-				<a class="m5-link" href="TODO-permalink" target="_blank" rel="noopener">Open the post</a>
+				<h3>Reddit</h3>
+				<p>We made more than 15 posts in different subreddits, each written for that community&rsquo;s rules, using three accounts. The first two were banned. On the third, a post without the link was published, and it was removed by Reddit&rsquo;s filters as soon as we added the link. The channel brought only 2 visitors and no sign-ups. Details <a href="#reddit">below</a>.</p>
+				<a class="m5-link" href="https://www.reddit.com/r/youngentrepreneur/comments/1y1r1pr/90_of_the_people_who_returned_clothes_in_our/" target="_blank" rel="noopener">Open the post</a>
 			</article>
 		</div>
 	</section>
@@ -133,8 +130,7 @@
 			</article>
 			<article class="card">
 				<h3>Reddit</h3>
-				<p>Almost no traffic and no sign-ups, mostly because our posts never became public. Reddit&rsquo;s spam filters
-					removed most of them. We would build up the account first and try again.</p>
+				<p>Almost no traffic and no sign-ups. Our test showed that a post without the link was accepted and was removed instantly once the link was added, so the link was the clear trigger.</p>
 			</article>
 			<article class="card">
 				<h3>Direct / other</h3>
@@ -142,19 +138,73 @@
 					that a personal message or a post gives much better context than a bare link.</p>
 			</article>
 		</div>
+	</section>
 
-		<div class="card" style="margin-top:24px">
-			<h3>What went wrong on Reddit</h3>
-			<p>We made more than 15 posts and only one became public. In about 80% of cases Reddit showed &ldquo;Sorry, this post was
-				removed by Reddit&rsquo;s filters&rdquo;, which means the automatic spam filter blocked it, not the subreddit moderators.
-				In the other 20% the post was waiting to be approved. The most likely reasons:</p>
+	<section id="reddit">
+		<h2>Reddit in detail</h2>
+
+		<div class="card">
+			<h3>What we did</h3>
+			<p>Reddit was the channel where we hit the most problems, so we are documenting the whole process.
+				Every post was written for its own subreddit and followed that community&rsquo;s rules (format, flair, self-promotion).
+				We still could not get the link to stay up.</p>
+			<ol class="m5-list">
+				<li><b>Account 1.</b> We posted tailored posts with the landing page link. They were removed
+					by Reddit&rsquo;s filters and the account was banned.
+					<img src="images/m5/cont.png" alt="Account 1: posts removed by Reddit&rsquo;s filters and the account banned" class="m5-img" loading="lazy">
+				</li>
+				<li><b>Account 2.</b> A new account, same approach, same result: removed by the filters and banned.</li>
+					<img src="images/m5/ban.png" alt="Account 2: This one was blocked too" class="m5-img" loading="lazy">
+				</li>
+				<li><b>Account 3: a test.</b> We posted a normal post <b>without</b> the GitHub link. It was published and everything
+					was fine. About 5 minutes later we added a comment with the link. As soon as the link appeared, the filter flagged it
+					and the <b>whole post</b> was removed with &ldquo;Sorry, this post was removed by Reddit&rsquo;s filters&rdquo;.
+					<img src="images/m5/post1.png" alt="Account 3: the post published without the link" class="m5-img" loading="lazy">
+				</li>
+			</ol>
+			<p>In total we made more than 15 posts, and only one became public. Across the campaign, about 80% of cases showed the
+				&ldquo;removed by Reddit&rsquo;s filters&rdquo; message, which means the automatic spam filter blocked the post, not the
+				subreddit moderators. In the other 20% the post was waiting to be approved.</p>
+		</div>
+
+		<div class="card">
+			<h3>What the test on account 3 shows</h3>
+			<p>It is the closest thing we have to a controlled experiment. Same account, same post, same subreddit, a few minutes
+				apart. The only difference was the link.</p>
 			<ul class="m5-list">
-				<li><b>New account or low karma.</b> Accounts with no history of comments and posts are treated with suspicion, especially when they post a link.</li>
-				<li><b>The link.</b> github.io is often used for spam and phishing, so filters flag it easily, and the utm parameters make it look more suspicious.</li>
-				<li><b>The same link in many places.</b> Posting the same text or link in several subreddits looks like spam, and a link used often can be flagged for later posts too.</li>
-				<li><b>Purely promotional posts.</b> The account had no other activity, and its only posts linked to our own project.</li>
+				<li><b>Without the link</b>, the post was accepted and published.</li>
+				<li><b>With the link</b>, it was flagged instantly and the entire post was removed, not just the comment.</li>
 			</ul>
-			<p>Next time we would build up the account with normal comments first and use a custom domain instead of github.io.</p>
+			<p>This is strong evidence that <b>the link was what triggered the filter</b>, and not the topic, the wording, the
+				format or the subreddit rules. Because the removal was instant, it points to an automatic check on the link and not to
+				a person reading the post.</p>
+		</div>
+
+		<div class="card">
+			<h3>Why a link can be treated as suspicious</h3>
+			<p>Reddit does not publish how its spam filter works, but there is evidence that it filters by link or domain:</p>
+			<ul class="m5-list">
+				<li>Reports on Reddit&rsquo;s sitewide filter describe posts with certain domains being hidden, some of them
+					&ldquo;soft-filtered&rdquo; so that moderators can approve them manually, with no explanation given to the user.</li>
+				<li>Other founders and developers have reported the same behavior for their own sites, for example posts with dev.to
+					links being blocked while posts without them were fine.</li>
+				<li>Reddit has also banned whole domains in the past because of repeated spam or vote cheating, and it discourages
+					accounts that mostly submit links to a site they own or benefit from.</li>
+			</ul>
+			<p class="note">Our own assumption is that github.io is flagged because free hosting domains are often used for spam and
+				phishing, and that a new account posting a link to its own project adds to the suspicion. We could not confirm this
+				with Reddit, and we do not know whether github.io itself, the utm parameters or the combination with a new account is
+				the exact cause.</p>
+		</div>
+
+		<div class="card">
+			<h3>What we would do differently</h3>
+			<ul class="m5-list">
+				<li>Use a <b>custom domain</b> instead of github.io, without utm parameters in the visible link, and check it before posting.</li>
+				<li>Use <b>one real account</b> and build it up with useful comments for a few weeks before sharing anything.</li>
+				<li>Post without the link first and ask the moderators (modmail) if a link is allowed, so they can approve it manually.</li>
+				<li>Offer the link on request (comments or direct messages) in communities that allow it.</li>
+			</ul>
 		</div>
 	</section>
 
@@ -185,9 +235,9 @@
 		<div class="card">
 			<ul class="m5-list">
 				<li><b>Personal sharing worked best.</b> Sending the link directly (WhatsApp) beat posting in public communities (Reddit) for a very early-stage product.</li>
-				<li><b>Reddit did not work.</b> Of more than 15 posts only one became public, because Reddit&rsquo;s spam filters removed the rest. Two visitors and no sign-ups. A mistyped UTM tag also made the data harder to read.</li>
+				<li><b>Reddit did not work, and the link was the trigger.</b> Of more than 15 tailored posts, only one became public. On our third account, a post without the link was accepted and was removed by the filters as soon as we added the link. Two visitors and no sign-ups.</li>
+				<li><b>Account workarounds are not a solution.</b> Two accounts were banned, and opening a third to investigate goes against Reddit&rsquo;s rules on multiple accounts and ban evasion. Reddit needs a real account history and a trusted link, which takes weeks.</li>
 				<li><b>Discord is promising.</b> The signup rate was the highest (60%), but 5 visitors is too few to be sure.</li>
-				<li><b>Next time:</b> double-check every UTM tag before posting, and test Discord and Reddit with more posts in more targeted communities.</li>
 			</ul>
 		</div>
 	</section>
